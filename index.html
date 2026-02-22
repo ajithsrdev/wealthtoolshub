@@ -3,86 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WealthToolsHub - Smart Finance Calculators</title>
+<title>EMI Calculator | WealthToolsHub</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; }
 </style>
 </head>
 
-<body class="bg-white text-gray-800 transition duration-300" id="body">
+<body class="bg-gray-50 text-gray-800">
 
-<!-- Navbar -->
-<nav class="flex justify-between items-center p-6 shadow-md">
-  <h1 class="text-2xl font-bold text-blue-600">WealthToolsHub</h1>
-  <button onclick="toggleDark()" class="px-4 py-2 bg-blue-600 text-white rounded-lg">
-    Toggle Dark Mode
-  </button>
+<!-- NAVBAR -->
+<nav class="bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold text-green-600">WealthToolsHub</h1>
+  </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="text-center py-16 bg-gradient-to-r from-blue-100 to-blue-50">
-  <h2 class="text-4xl font-bold mb-4">Smart Finance Tools for Better Decisions</h2>
-  <p class="text-lg text-gray-600">Calculate EMI, SIP returns and more instantly.</p>
+<!-- HERO -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <h2 class="text-4xl font-bold mb-3">EMI Calculator</h2>
+  <p class="text-gray-600 text-lg">
+    Calculate your home loan, car loan or personal loan EMI instantly.
+  </p>
 </section>
 
-<!-- EMI Calculator -->
-<section class="max-w-xl mx-auto p-6 mt-10 shadow-lg rounded-xl bg-white">
-  <h3 class="text-2xl font-bold mb-4 text-blue-600">EMI Calculator</h3>
-  <input id="loan" type="number" placeholder="Loan Amount" class="w-full p-2 mb-3 border rounded">
-  <input id="rate" type="number" placeholder="Interest Rate (%)" class="w-full p-2 mb-3 border rounded">
-  <input id="tenure" type="number" placeholder="Tenure (Years)" class="w-full p-2 mb-3 border rounded">
-  <button onclick="calculateEMI()" class="w-full bg-blue-600 text-white py-2 rounded">Calculate EMI</button>
-  <p id="emiResult" class="mt-4 font-semibold text-lg"></p>
+<!-- CALCULATOR SECTION -->
+<section class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-4 pb-16">
+
+  <!-- LEFT SIDE -->
+  <div class="bg-white p-8 rounded-2xl shadow-sm">
+
+    <!-- Loan Amount -->
+    <div class="mb-8">
+      <div class="flex justify-between mb-2">
+        <label class="font-semibold">Loan Amount</label>
+        <span class="text-green-600 font-semibold">₹ <span id="loanVal">1000000</span></span>
+      </div>
+      <input type="range" min="100000" max="5000000" step="50000"
+             value="1000000" id="loan"
+             class="w-full accent-green-600"
+             oninput="calculateEMI()">
+    </div>
+
+    <!-- Interest -->
+    <div class="mb-8">
+      <div class="flex justify-between mb-2">
+        <label class="font-semibold">Interest Rate</label>
+        <span class="text-green-600 font-semibold"><span id="rateVal">7.5</span>%</span>
+      </div>
+      <input type="range" min="5" max="15" step="0.1"
+             value="7.5" id="rate"
+             class="w-full accent-green-600"
+             oninput="calculateEMI()">
+    </div>
+
+    <!-- Tenure -->
+    <div>
+      <div class="flex justify-between mb-2">
+        <label class="font-semibold">Loan Tenure</label>
+        <span class="text-green-600 font-semibold"><span id="tenureVal">5</span> Years</span>
+      </div>
+      <input type="range" min="1" max="30" step="1"
+             value="5" id="tenure"
+             class="w-full accent-green-600"
+             oninput="calculateEMI()">
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="bg-white p-8 rounded-2xl shadow-sm">
+
+    <p class="text-gray-600 mb-2">Monthly EMI</p>
+    <h3 class="text-4xl font-bold text-green-600 mb-6">
+      ₹ <span id="emi">0</span>
+    </h3>
+
+    <canvas id="chart"></canvas>
+
+    <div class="mt-6 text-gray-700">
+      <div class="flex justify-between mb-2">
+        <span>Principal</span>
+        <span>₹ <span id="principalOut"></span></span>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Total Interest</span>
+        <span>₹ <span id="interestOut"></span></span>
+      </div>
+      <div class="flex justify-between font-semibold">
+        <span>Total Payment</span>
+        <span>₹ <span id="totalOut"></span></span>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
-<!-- SIP Calculator -->
-<section class="max-w-xl mx-auto p-6 mt-10 shadow-lg rounded-xl bg-white">
-  <h3 class="text-2xl font-bold mb-4 text-blue-600">SIP Calculator</h3>
-  <input id="sipAmount" type="number" placeholder="Monthly Investment" class="w-full p-2 mb-3 border rounded">
-  <input id="sipRate" type="number" placeholder="Expected Return (%)" class="w-full p-2 mb-3 border rounded">
-  <input id="sipYears" type="number" placeholder="Years" class="w-full p-2 mb-3 border rounded">
-  <button onclick="calculateSIP()" class="w-full bg-blue-600 text-white py-2 rounded">Calculate SIP</button>
-  <p id="sipResult" class="mt-4 font-semibold text-lg"></p>
+<!-- SEO CONTENT SECTION -->
+<section class="bg-white py-12">
+  <div class="max-w-4xl mx-auto px-4">
+    <h3 class="text-2xl font-bold mb-4">What is EMI?</h3>
+    <p class="text-gray-600 leading-relaxed">
+      EMI (Equated Monthly Installment) is the fixed payment amount made by a borrower 
+      to a lender at a specified date each calendar month. Our EMI calculator helps you 
+      understand your monthly obligations and total interest payable.
+    </p>
+  </div>
 </section>
-
-<!-- Footer -->
-<footer class="text-center p-6 mt-16 bg-gray-100">
-  <p>© 2026 WealthToolsHub. All rights reserved.</p>
-</footer>
 
 <script>
+let chart;
+
 function calculateEMI() {
-  let P = document.getElementById("loan").value;
-  let annualRate = document.getElementById("rate").value;
-  let years = document.getElementById("tenure").value;
+  let P = parseFloat(document.getElementById("loan").value);
+  let annualRate = parseFloat(document.getElementById("rate").value);
+  let years = parseFloat(document.getElementById("tenure").value);
+
+  document.getElementById("loanVal").innerText = P.toLocaleString();
+  document.getElementById("rateVal").innerText = annualRate;
+  document.getElementById("tenureVal").innerText = years;
 
   let R = annualRate / 12 / 100;
   let N = years * 12;
 
-  let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
-  document.getElementById("emiResult").innerText =
-    "Monthly EMI: ₹ " + EMI.toFixed(2);
+  let EMI = (P * R * Math.pow(1 + R, N)) /
+            (Math.pow(1 + R, N) - 1);
+
+  let total = EMI * N;
+  let interest = total - P;
+
+  document.getElementById("emi").innerText = EMI.toFixed(0).toLocaleString();
+  document.getElementById("principalOut").innerText = P.toLocaleString();
+  document.getElementById("interestOut").innerText = interest.toFixed(0).toLocaleString();
+  document.getElementById("totalOut").innerText = total.toFixed(0).toLocaleString();
+
+  updateChart(P, interest);
 }
 
-function calculateSIP() {
-  let P = document.getElementById("sipAmount").value;
-  let annualRate = document.getElementById("sipRate").value;
-  let years = document.getElementById("sipYears").value;
+function updateChart(principal, interest) {
+  const ctx = document.getElementById("chart").getContext("2d");
+  if (chart) chart.destroy();
 
-  let R = annualRate / 12 / 100;
-  let N = years * 12;
-
-  let FV = P * ((Math.pow(1 + R, N) - 1) / R) * (1 + R);
-  document.getElementById("sipResult").innerText =
-    "Future Value: ₹ " + FV.toFixed(2);
+  chart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["Principal", "Interest"],
+      datasets: [{
+        data: [principal, interest],
+        backgroundColor: ["#16a34a", "#d1fae5"]
+      }]
+    }
+  });
 }
 
-function toggleDark() {
-  const body = document.getElementById("body");
-  body.classList.toggle("bg-gray-900");
-  body.classList.toggle("text-white");
-}
+calculateEMI();
 </script>
 
 </body>
