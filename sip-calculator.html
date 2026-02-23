@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SIP Calculator India 2026 – Mutual Fund SIP Return Calculator</title>
+<meta name="description" content="Free SIP Calculator India. Calculate mutual fund SIP returns, total investment & wealth gain instantly.">
+<meta name="keywords" content="SIP calculator India, mutual fund SIP calculator, investment calculator">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
+<body>
+
+<header class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="index.html">EMI</a>
+      <a href="sip-calculator.html" class="active">SIP</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>SIP Calculator India</h1>
+    <p>Plan your mutual fund investments with accurate SIP return calculations.</p>
+  </div>
+</section>
+
+<section class="calculator-section container">
+
+<div class="calculator-card">
+
+<div class="input-side">
+<h3>Investment Details</h3>
+
+<label>Monthly Investment (₹)</label>
+<input type="number" id="monthlyInvestment" value="5000">
+
+<label>Expected Annual Return (%)</label>
+<input type="number" id="annualReturn" value="12">
+
+<label>Investment Duration (Years)</label>
+<input type="number" id="years" value="15">
+
+<button onclick="calculateSIP()">Calculate SIP</button>
+</div>
+
+<div class="result-side">
+<h3>Investment Summary</h3>
+
+<div class="result-box">
+<p>Estimated Corpus</p>
+<h2>₹ <span id="totalValue">0</span></h2>
+</div>
+
+<p>Total Invested: ₹ <span id="totalInvested">0</span></p>
+<p>Estimated Returns: ₹ <span id="estimatedReturns">0</span></p>
+
+<canvas id="sipChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="ad-section container">
+Advertisement
+</div>
+
+<section class="seo-content container">
+
+<h2>What is SIP?</h2>
+<p>
+Systematic Investment Plan (SIP) allows investors to invest a fixed amount regularly in mutual funds.
+It helps build wealth over time through compounding and disciplined investing.
+</p>
+
+<h2>How SIP Calculator Works?</h2>
+<p>
+Our SIP calculator uses the future value formula:
+FV = P × [((1+r)^n − 1) / r] × (1+r)
+Where P is monthly investment, r is monthly return rate and n is number of months.
+</p>
+
+<h2>Benefits of SIP Investment</h2>
+<p>
+• Power of Compounding  
+• Rupee Cost Averaging  
+• Flexible investment amounts  
+• Long-term wealth creation  
+</p>
+
+<h2>Is SIP Better Than FD?</h2>
+<p>
+SIP offers market-linked returns and has potential to generate higher long-term wealth
+compared to fixed deposits which provide fixed interest.
+</p>
+
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 WealthToolsHub | Smart Investing for India 🇮🇳</p>
+</div>
+</footer>
+
+<script src="js/sip.js"></script>
+</body>
+</html>
