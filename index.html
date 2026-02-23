@@ -5,21 +5,31 @@
 <title>EMI Calculator India</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="container nav">
-    <a href="index.html" class="active">EMI Calculator</a>
-    <a href="sip-calculator.html">SIP Calculator</a>
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="index.html" class="active">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+    </nav>
   </div>
 </header>
 
-<div class="container card">
+<section class="hero">
+  <div class="container">
+    <h1>EMI Calculator</h1>
+    <p>Calculate your loan EMI instantly with Indian format.</p>
+  </div>
+</section>
 
-<h2>EMI Calculator</h2>
+<section class="container calculator-card">
 
+<div class="input-side">
 <label>Loan Amount (₹)</label>
 <input type="number" id="loanAmount" value="1000000">
 
@@ -30,16 +40,22 @@
 <input type="number" id="loanTenure" value="20">
 
 <button onclick="calculateEMI()">Calculate EMI</button>
+</div>
 
-<div class="result">
-<p>Monthly EMI: ₹ <span id="emiResult">0</span></p>
+<div class="result-side">
+<div class="result-box">
+<p>Monthly EMI</p>
+<h2>₹ <span id="emiResult">0</span></h2>
+</div>
+
 <p>Total Interest: ₹ <span id="totalInterest">0</span></p>
 <p>Total Payment: ₹ <span id="totalPayment">0</span></p>
+
+<canvas id="emiChart"></canvas>
 </div>
 
-</div>
+</section>
 
 <script src="js/emi.js"></script>
-
 </body>
 </html>
