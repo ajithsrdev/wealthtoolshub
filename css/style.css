@@ -106,31 +106,33 @@ button:hover { background:#0f172a; }
 }
 /* ===== SEO CONTENT SECTION ===== */
 
+
+/* ===== PREMIUM SEO CONTENT ===== */
+
 .seo-content {
-  margin-top: 60px;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  line-height: 1.8;
+  margin: 80px auto;
+  max-width: 850px;        /* Important: limits text width */
+  padding: 0 20px;
+  line-height: 1.9;
 }
 
 .seo-content h2 {
-  font-size: 24px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  color: #1e3a8a;
+  font-size: 26px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  color: #0f172a;
 }
 
 .seo-content h3 {
   font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  color: #0f172a;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  color: #1e3a8a;
 }
 
 .seo-content p {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  font-size: 16px;
   color: #475569;
 }
 
@@ -140,11 +142,12 @@ button:hover { background:#0f172a; }
 }
 
 .seo-content li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: #475569;
 }
 
 @media(max-width:768px){
   .seo-content {
-    padding: 25px;
+    margin: 50px auto;
   }
 }
