@@ -1,37 +1,49 @@
 let emiChart;
 
+// Indian number formatter
+function formatIndianNumber(num) {
+    return num.toLocaleString("en-IN");
+}
+
 function calculateEMI() {
 
-const P = parseFloat(document.getElementById("loanAmount").value);
-const annualRate = parseFloat(document.getElementById("interestRate").value);
-const years = parseFloat(document.getElementById("loanTenure").value);
+    const P = parseFloat(document.getElementById("loanAmount").value) || 0;
+    const annualRate = parseFloat(document.getElementById("interestRate").value) || 0;
+    const years = parseFloat(document.getElementById("loanTenure").value) || 0;
 
-const r = annualRate / 12 / 100;
-const n = years * 12;
+    if (P <= 0 || annualRate <= 0 || years <= 0) {
+        alert("Please enter valid values");
+        return;
+    }
 
-const EMI = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const r = annualRate / 12 / 100;
+    const n = years * 12;
 
-const totalPayment = EMI * n;
-const totalInterest = totalPayment - P;
+    const EMI = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 
-document.getElementById("emiResult").innerText = EMI.toFixed(0);
-document.getElementById("totalInterest").innerText = totalInterest.toFixed(0);
-document.getElementById("totalPayment").innerText = totalPayment.toFixed(0);
+    const totalPayment = EMI * n;
+    const totalInterest = totalPayment - P;
 
-const ctx = document.getElementById("emiChart");
+    // Apply Indian format
+    document.getElementById("emiResult").innerText = formatIndianNumber(Math.round(EMI));
+    document.getElementById("totalInterest").innerText = formatIndianNumber(Math.round(totalInterest));
+    document.getElementById("totalPayment").innerText = formatIndianNumber(Math.round(totalPayment));
 
-if (emiChart) emiChart.destroy();
+    const ctx = document.getElementById("emiChart");
 
-emiChart = new Chart(ctx, {
-type: "doughnut",
-data: {
-labels: ["Principal", "Interest"],
-datasets: [{
-data: [P, totalInterest],
-backgroundColor: ["#1e3a8a", "#cbd5e1"]
-}]
+    if (emiChart) emiChart.destroy();
+
+    emiChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Principal", "Interest"],
+            datasets: [{
+                data: [P, totalInterest],
+                backgroundColor: ["#1e3a8a", "#94a3b8"]
+            }]
+        }
+    });
 }
-});
-}
 
-calculateEMI();
+// Auto calculate on load
+document.addEventListener("DOMContentLoaded", calculateEMI);
