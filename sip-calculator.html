@@ -5,21 +5,31 @@
 <title>SIP Calculator India</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="container nav">
-    <a href="index.html">EMI Calculator</a>
-    <a href="sip-calculator.html" class="active">SIP Calculator</a>
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html" class="active">SIP Calculator</a>
+    </nav>
   </div>
 </header>
 
-<div class="container card">
+<section class="hero">
+  <div class="container">
+    <h1>SIP Calculator</h1>
+    <p>Plan your mutual fund investment smartly.</p>
+  </div>
+</section>
 
-<h2>SIP Calculator</h2>
+<section class="container calculator-card">
 
+<div class="input-side">
 <label>Monthly Investment (₹)</label>
 <input type="number" id="monthlyInvestment" value="5000">
 
@@ -30,16 +40,22 @@
 <input type="number" id="years" value="10">
 
 <button onclick="calculateSIP()">Calculate SIP</button>
+</div>
 
-<div class="result">
+<div class="result-side">
+<div class="result-box">
+<p>Estimated Corpus</p>
+<h2>₹ <span id="totalValue">0</span></h2>
+</div>
+
 <p>Total Invested: ₹ <span id="totalInvested">0</span></p>
 <p>Estimated Returns: ₹ <span id="estimatedReturns">0</span></p>
-<p>Total Value: ₹ <span id="totalValue">0</span></p>
+
+<canvas id="sipChart"></canvas>
 </div>
 
-</div>
+</section>
 
 <script src="js/sip.js"></script>
-
 </body>
 </html>
