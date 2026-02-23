@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SIP Calculator India – Calculate Mutual Fund Returns Online 2026</title>
+<meta name="description" content="Free SIP Calculator India. Calculate monthly SIP returns, total investment & wealth gain instantly. Plan mutual fund investments smartly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
+<header class="navbar">
+  <div class="container">
+    <h1 class="logo">WealthToolsHub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="sip-calculator.html" class="active">SIP Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>SIP Calculator India</h2>
+    <p>Calculate your Systematic Investment Plan returns instantly.</p>
+  </div>
+</section>
+
+<section class="calculator-section container">
+
+<div class="calculator-card">
+
+<div class="input-side">
+<label>Monthly Investment (₹)</label>
+<input type="range" min="500" max="100000" step="500" value="5000" id="monthlyRange">
+<input type="number" id="monthlyInvestment" value="5000">
+
+<label>Expected Return (%)</label>
+<input type="range" min="1" max="30" value="12" id="returnRange">
+<input type="number" id="annualReturn" value="12">
+
+<label>Time Period (Years)</label>
+<input type="range" min="1" max="40" value="10" id="yearRange">
+<input type="number" id="years" value="10">
+
+<button onclick="calculateSIP()">Calculate SIP</button>
+</div>
+
+<div class="result-side">
+<h3>Investment Summary</h3>
+<p>Total Invested: ₹ <span id="totalInvested">0</span></p>
+<p>Estimated Returns: ₹ <span id="estimatedReturns">0</span></p>
+<p>Total Value: ₹ <span id="totalValue">0</span></p>
+
+<canvas id="sipChart"></canvas>
+</div>
+
+</div>
+
+</section>
+
+<!-- Ad Placeholder -->
+<div class="ad-container container">
+  <p>Advertisement</p>
+</div>
+
+<section class="seo-content container">
+
+<h2>What is SIP?</h2>
+<p>
+Systematic Investment Plan (SIP) is a disciplined way to invest in mutual funds.
+It allows investors to invest a fixed amount every month and build wealth over time through compounding.
+</p>
+
+<h2>Benefits of SIP Investment</h2>
+<ul>
+<li>Power of Compounding</li>
+<li>Rupee Cost Averaging</li>
+<li>Low Investment Start (₹500)</li>
+<li>Flexible & Convenient</li>
+</ul>
+
+<h2>How SIP Calculator Works?</h2>
+<p>
+Our SIP calculator uses the future value formula to estimate total corpus based on
+monthly investment, expected return rate and duration.
+</p>
+
+<h2>Is SIP Better Than FD?</h2>
+<p>
+SIP investments are market-linked and may generate higher long-term returns compared to Fixed Deposits,
+which offer fixed interest rates.
+</p>
+
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>Start Your Investment Journey Today</h2>
+<a href="emi-calculator.html" class="cta-btn">Try EMI Calculator</a>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 WealthToolsHub India | All Rights Reserved</p>
+</div>
+</footer>
+
+<script src="js/sip.js"></script>
+</body>
+</html>
