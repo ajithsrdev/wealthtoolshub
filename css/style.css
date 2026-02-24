@@ -21,7 +21,7 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
   background: #0f172a;
-  padding: 20px 0;
+  padding: 16px 0;
 }
 
 .nav-flex {
@@ -38,9 +38,9 @@ body {
 
 nav a {
   color: #cbd5e1;
-  margin-left: 30px;
+  margin-left: 24px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   transition: 0.3s;
 }
@@ -54,96 +54,162 @@ nav a:hover {
 .hero {
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
   color: white;
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.hero p {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 /* ===== CALCULATOR CARD ===== */
 .calculator-card {
   background: white;
-  margin-top: -40px;
-  padding: 40px;
+  margin-top: -36px;
+  padding: 36px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   display: flex;
-  gap: 40px;
+  gap: 36px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
+/* ✅ FIX: removed min-width that was causing overflow on mobile */
 .input-side,
 .result-side {
-  flex: 1;
-  min-width: 280px;
+  flex: 1 1 260px;
+  width: 100%;
+  min-width: 0;
 }
 
+/* ===== LABELS ===== */
 label {
   font-weight: 600;
   display: block;
   margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #374151;
 }
 
-input {
+/* ✅ FIX: full width inputs with proper mobile sizing */
+input[type="number"],
+input[type="text"] {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  margin-bottom: 18px;
+  padding: 11px 14px;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1.5px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 16px; /* ✅ prevents iOS auto-zoom */
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
 }
 
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: #1e3a8a;
+  background: #fff;
+}
+
+/* ✅ Remove number input spinner arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ===== BUTTON ===== */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   background: #1e3a8a;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 10px;
+  font-size: 16px;
+  margin-top: 18px;
+  transition: background 0.2s;
 }
 
 button:hover {
   background: #0f172a;
 }
 
+/* ===== RESULT BOX ===== */
 .result-box {
   background: #f1f5f9;
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
-/* ===== SEO CONTENT SECTION (FIXED VERSION) ===== */
+.result-box p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
 
+.result-box h2 {
+  font-size: 32px;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.result-side > p {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+canvas {
+  max-width: 100%;
+  margin-top: 16px;
+}
+
+/* ===== SEO CONTENT SECTION ===== */
 .seo-content {
-  margin: 80px auto;
-  max-width: 850px;        /* limits reading width */
+  margin: 60px auto;
+  max-width: 850px;
   padding: 0 20px;
 }
 
 .seo-content h2 {
-  font-size: 26px;
-  margin-top: 50px;
-  margin-bottom: 15px;
+  font-size: 24px;
+  margin-top: 48px;
+  margin-bottom: 14px;
   color: #0f172a;
 }
 
 .seo-content h3 {
   font-size: 18px;
-  margin-top: 30px;
+  margin-top: 28px;
   margin-bottom: 8px;
   color: #1e3a8a;
 }
 
 .seo-content p {
-  margin-bottom: 18px;
-  font-size: 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
   color: #475569;
   line-height: 1.8;
 }
@@ -156,20 +222,102 @@ button:hover {
 .seo-content li {
   margin-bottom: 10px;
   color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.seo-content a {
+  color: #1e3a8a;
+  text-decoration: underline;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .calculator-card {
-    flex-direction: column;
-  }
 
+  /* Navbar stacks on mobile */
   .nav-flex {
     flex-direction: column;
     gap: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 15px;
+  }
+
+  /* Hero smaller on mobile */
+  .hero {
+    padding: 48px 16px 56px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  /* ✅ KEY FIX: calculator stacks vertically, no overflow */
+  .calculator-card {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 16px;
+    margin-top: -28px;
+    border-radius: 14px;
+  }
+
+  .input-side,
+  .result-side {
+    width: 100%;
+    flex: none;
+    min-width: 0;
+  }
+
+  /* ✅ inputs full width on mobile */
+  input[type="number"],
+  input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .result-box h2 {
+    font-size: 26px;
   }
 
   .seo-content {
-    margin: 50px auto;
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  .seo-content h2 {
+    font-size: 20px;
+    margin-top: 36px;
+  }
+
+  .seo-content h3 {
+    font-size: 16px;
+  }
+
+  .seo-content p,
+  .seo-content li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 19px;
+  }
+
+  .calculator-card {
+    padding: 20px 12px;
+  }
+
+  .result-box h2 {
+    font-size: 22px;
   }
 }
