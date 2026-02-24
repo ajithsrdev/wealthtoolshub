@@ -2,10 +2,217 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>EMI Calculator India</title>
+
+<!-- ✅ SEO: Meta Title -->
+<title>EMI Calculator – Calculate Loan EMI Instantly Online | WealthToolsHub</title>
+
+<!-- ✅ SEO: Meta Description -->
+<meta name="description" content="Use our free EMI Calculator to instantly calculate your home loan, car loan or personal loan EMI. Get monthly EMI, total interest & payment breakdown. 100% free & accurate.">
+
+<!-- ✅ SEO: Keywords -->
+<meta name="keywords" content="EMI calculator, EMI calculator India, loan EMI calculator, home loan EMI calculator, car loan EMI calculator, personal loan EMI calculator, monthly EMI calculator 2026">
+
+<!-- ✅ SEO: Robots -->
+<meta name="robots" content="index, follow">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ✅ Canonical -->
+<link rel="canonical" href="https://www.wealthtoolshub.com/">
+
+<!-- ✅ Open Graph Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WealthToolsHub">
+<meta property="og:title" content="EMI Calculator – Calculate Loan EMI Instantly | WealthToolsHub">
+<meta property="og:description" content="Free EMI Calculator India – Calculate your home loan, car loan or personal loan EMI instantly. Plan your finances with WealthToolsHub.">
+<meta property="og:url" content="https://www.wealthtoolshub.com/">
+
+<!-- ✅ Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EMI Calculator – Calculate Loan EMI Instantly | WealthToolsHub">
+<meta name="twitter:description" content="Free EMI Calculator India – Calculate your home, car or personal loan EMI instantly with WealthToolsHub.">
+
+<!-- ✅ JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "EMI Calculator",
+      "url": "https://www.wealthtoolshub.com/",
+      "description": "Free online EMI Calculator to calculate home loan, car loan and personal loan EMIs instantly.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "WealthToolsHub",
+        "url": "https://www.wealthtoolshub.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI stands for Equated Monthly Instalment. It is a fixed monthly payment made to a lender to repay a loan over a specified tenure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the EMI formula?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI = P × r × (1+r)^n / [(1+r)^n – 1], where P is the principal loan amount, r is the monthly interest rate, and n is the number of monthly instalments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a longer loan tenure reduce EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A longer loan tenure reduces your monthly EMI but increases the total interest paid over the loan period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this EMI calculator for home loan, car loan and personal loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. This EMI calculator works for all types of loans including home loans, car loans, personal loans, education loans and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this EMI calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. WealthToolsHub's EMI Calculator is 100% free with no sign-up or registration required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does prepayment affect my EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prepayment reduces your outstanding principal, which can either reduce your EMI amount or shorten your loan tenure depending on your lender's policy."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wealthtoolshub.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "EMI Calculator",
+          "item": "https://www.wealthtoolshub.com/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ✅ Mobile UI Fix -->
+<style>
+/* === MOBILE INPUT FIX === */
+* { box-sizing: border-box; }
+
+.calculator-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.input-side,
+.result-side {
+  flex: 1 1 300px;
+  width: 100%;
+}
+
+.input-side label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.input-side input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: #f9fafb;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input-side input[type="number"]:focus {
+  border-color: #2563eb;
+  background: #fff;
+}
+
+.input-side button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.input-side button:hover { background: #1d4ed8; }
+
+/* Remove number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] { -moz-appearance: textfield; }
+
+@media (max-width: 640px) {
+  .calculator-card {
+    flex-direction: column;
+    padding: 20px 16px;
+  }
+  .input-side,
+  .result-side {
+    width: 100%;
+    flex: none;
+  }
+  .input-side input[type="number"] {
+    font-size: 16px; /* prevents zoom on iOS */
+  }
+}
+</style>
 </head>
 
 <body>
@@ -22,37 +229,128 @@
 
 <section class="hero">
   <div class="container">
-    <h1>EMI Calculator</h1>
-    <p>Calculate your loan EMI instantly with Indian format.</p>
+    <!-- ✅ Improved H1 -->
+    <h1>EMI Calculator – Calculate Your Loan EMI Instantly</h1>
+    <p>Calculate your home loan, car loan or personal loan EMI in seconds.</p>
   </div>
 </section>
 
 <section class="container calculator-card">
 
 <div class="input-side">
-<label>Loan Amount (₹)</label>
-<input type="number" id="loanAmount" value="1000000">
+  <label>Loan Amount (₹)</label>
+  <input type="number" id="loanAmount" value="1000000" placeholder="Enter loan amount">
 
-<label>Interest Rate (%)</label>
-<input type="number" id="interestRate" value="8">
+  <label>Interest Rate (%)</label>
+  <input type="number" id="interestRate" value="8" placeholder="Enter interest rate">
 
-<label>Loan Tenure (Years)</label>
-<input type="number" id="loanTenure" value="20">
+  <label>Loan Tenure (Years)</label>
+  <input type="number" id="loanTenure" value="20" placeholder="Enter tenure in years">
 
-<button onclick="calculateEMI()">Calculate EMI</button>
+  <button onclick="calculateEMI()">Calculate EMI</button>
 </div>
 
 <div class="result-side">
-<div class="result-box">
-<p>Monthly EMI</p>
-<h2>₹ <span id="emiResult">0</span></h2>
+  <div class="result-box">
+    <p>Monthly EMI</p>
+    <h2>₹ <span id="emiResult">0</span></h2>
+  </div>
+  <p>Total Interest: ₹ <span id="totalInterest">0</span></p>
+  <p>Total Payment: ₹ <span id="totalPayment">0</span></p>
+  <canvas id="emiChart"></canvas>
 </div>
 
-<p>Total Interest: ₹ <span id="totalInterest">0</span></p>
-<p>Total Payment: ₹ <span id="totalPayment">0</span></p>
+</section>
 
-<canvas id="emiChart"></canvas>
-</div>
+<!-- ✅ SEO CONTENT SECTION -->
+<section class="container seo-content">
+
+<h2>What is an EMI?</h2>
+<p>
+EMI stands for <strong>Equated Monthly Instalment</strong>. It is a fixed amount you pay to your lender every month until your loan is fully repaid. Each EMI has two components — the principal amount and the interest. In the early months, a larger portion of your EMI goes towards interest. As the loan matures, a higher portion goes towards reducing the principal.
+</p>
+<p>
+Whether you are taking a home loan, car loan, personal loan, or education loan in India, your EMI remains fixed throughout the loan tenure, making it easy to plan your monthly budget.
+</p>
+
+<h2>How to Use This EMI Calculator</h2>
+<p>
+Using WealthToolsHub's EMI Calculator is quick and simple. Just enter three values — your loan amount, the annual interest rate offered by your bank or lender, and the loan tenure in years. Click <strong>Calculate EMI</strong> and instantly get your monthly EMI, total interest payable, and total repayment amount. You can adjust the values to compare different loan scenarios and choose the one that fits your budget best.
+</p>
+
+<h2>EMI Calculation Formula</h2>
+<p>
+The standard EMI formula used by all banks and financial institutions in India is:
+</p>
+<p><strong>EMI = P × r × (1+r)^n / [(1+r)^n – 1]</strong></p>
+<p>
+Where <strong>P</strong> = Principal loan amount, <strong>r</strong> = Monthly interest rate (annual rate ÷ 12 ÷ 100), and <strong>n</strong> = Total number of monthly instalments (years × 12). Our calculator uses this exact formula to give you accurate results instantly.
+</p>
+
+<h2>Types of Loans You Can Calculate</h2>
+
+<h3>Home Loan EMI Calculator</h3>
+<p>
+Home loans in India typically range from 8% to 10% per annum with tenures up to 30 years. Use this calculator to find out your monthly home loan EMI and plan your purchase confidently.
+</p>
+
+<h3>Car Loan EMI Calculator</h3>
+<p>
+Car loans usually come with interest rates between 8.5% to 12% and tenures of 1 to 7 years. Enter your car loan details to get your exact monthly EMI in seconds.
+</p>
+
+<h3>Personal Loan EMI Calculator</h3>
+<p>
+Personal loans carry higher interest rates, typically 10% to 24% per annum, with shorter tenures of 1 to 5 years. Use this calculator to check your personal loan EMI before applying.
+</p>
+
+<h2>Factors That Affect Your EMI</h2>
+
+<h3>1. Loan Amount</h3>
+<p>Higher the loan amount, higher the EMI. Borrowing only what you need helps keep your monthly payments manageable.</p>
+
+<h3>2. Interest Rate</h3>
+<p>A lower interest rate significantly reduces your EMI and total interest paid. Always compare rates across banks before taking a loan.</p>
+
+<h3>3. Loan Tenure</h3>
+<p>A longer tenure reduces your EMI but increases total interest paid. A shorter tenure means higher EMI but you save on overall interest cost.</p>
+
+<h2>EMI Calculator vs Manual Calculation</h2>
+<p>
+Calculating EMI manually using the formula is complex and time-consuming, especially for large loan amounts or long tenures. Our free online EMI Calculator does the calculation instantly and accurately, saving you time and effort. You can also try multiple combinations of loan amount, rate, and tenure to find the most affordable option.
+</p>
+
+<h2>Tips to Reduce Your Loan EMI</h2>
+<ul>
+<li>Make a higher down payment to reduce the principal loan amount</li>
+<li>Negotiate a lower interest rate with your bank or NBFC</li>
+<li>Choose a longer tenure to reduce monthly EMI burden</li>
+<li>Make part-prepayments periodically to reduce outstanding principal</li>
+<li>Maintain a good credit score (750+) to qualify for lower rates</li>
+</ul>
+
+<!-- ✅ Internal link to SIP Calculator -->
+<p><strong>Also try:</strong> Use our <a href="sip-calculator.html">SIP Calculator</a> to plan your mutual fund investments alongside your loan repayments.</p>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+
+<h3>1. What is EMI?</h3>
+<p>EMI stands for Equated Monthly Instalment — a fixed monthly payment made to repay a loan over a chosen tenure.</p>
+
+<h3>2. What is the EMI formula?</h3>
+<p>EMI = P × r × (1+r)^n / [(1+r)^n – 1], where P is principal, r is monthly interest rate, and n is number of months.</p>
+
+<h3>3. Does a longer tenure reduce EMI?</h3>
+<p>Yes. A longer tenure lowers your monthly EMI but increases the total interest you pay over the loan period.</p>
+
+<h3>4. Can I use this for home loan, car loan and personal loan?</h3>
+<p>Yes. This EMI calculator works for all loan types — home, car, personal, education, and business loans.</p>
+
+<h3>5. Is this EMI calculator free?</h3>
+<p>Yes. WealthToolsHub's EMI Calculator is 100% free with no sign-up required.</p>
+
+<h3>6. How does prepayment affect my EMI?</h3>
+<p>Prepayment reduces your outstanding principal, which can either lower your EMI or shorten your loan tenure depending on your lender's policy.</p>
 
 </section>
 
