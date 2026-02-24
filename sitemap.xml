@@ -17,6 +17,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- FD Calculator -->
+  <url>
+    <loc>https://www.wealthtoolshub.com/fd-calculator</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- About Page -->
   <url>
     <loc>https://www.wealthtoolshub.com/about</loc>
@@ -42,4 +50,3 @@
   </url>
 
 </urlset>
-
