@@ -134,104 +134,53 @@
 
 <!-- ✅ Mobile UI Fix -->
 <style>
-/* === MOBILE INPUT FIX === */
 * { box-sizing: border-box; }
-
-.calculator-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.input-side,
-.result-side {
-  flex: 1 1 300px;
-  width: 100%;
-}
-
-.input-side label {
-  display: block;
-  margin-bottom: 6px;
-  margin-top: 14px;
-  font-weight: 600;
-}
-
-.input-side input[type="number"] {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
-  outline: none;
-  background: #f9fafb;
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.input-side input[type="number"]:focus {
-  border-color: #2563eb;
-  background: #fff;
-}
-
-.input-side button {
-  width: 100%;
-  margin-top: 20px;
-  padding: 13px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
+.calculator-card { display: flex; flex-wrap: wrap; gap: 24px; }
+.input-side, .result-side { flex: 1 1 300px; width: 100%; }
+.input-side label { display: block; margin-bottom: 6px; margin-top: 14px; font-weight: 600; }
+.input-side input[type="number"] { width: 100%; padding: 12px 14px; font-size: 1rem; border: 1.5px solid #d1d5db; border-radius: 8px; outline: none; background: #f9fafb; transition: border-color 0.2s; -webkit-appearance: none; appearance: none; }
+.input-side input[type="number"]:focus { border-color: #2563eb; background: #fff; }
+.input-side button { width: 100%; margin-top: 20px; padding: 13px; font-size: 1rem; font-weight: 600; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
 .input-side button:hover { background: #1d4ed8; }
-
-/* Remove number input arrows */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 input[type=number] { -moz-appearance: textfield; }
-
 @media (max-width: 640px) {
-  .calculator-card {
-    flex-direction: column;
-    padding: 20px 16px;
-  }
-  .input-side,
-  .result-side {
-    width: 100%;
-    flex: none;
-  }
-  .input-side input[type="number"] {
-    font-size: 16px; /* prevents zoom on iOS */
-  }
+  .calculator-card { flex-direction: column; padding: 20px 16px; }
+  .input-side, .result-side { width: 100%; flex: none; }
+  .input-side input[type="number"] { font-size: 16px; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ✅ UPDATED NAVBAR WITH HAMBURGER -->
 <header class="navbar">
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
     <nav>
-  <a href="index.html" class="active">EMI Calculator</a>
-  <a href="sip-calculator.html">SIP Calculator</a>
-  <a href="fd-calculator.html">FD Calculator</a>
-  <a href="ppf-calculator.html">PPF Calculator</a>
-</nav>
+      <a href="index.html" class="active">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html">PPF Calculator</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <div class="hamburger-lines">
+        <span></span><span></span><span></span>
+      </div>
+      Menu
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">EMI Calculator</a>
+    <a href="sip-calculator.html">SIP Calculator</a>
+    <a href="fd-calculator.html">FD Calculator</a>
+    <a href="ppf-calculator.html">PPF Calculator</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <!-- ✅ Improved H1 -->
     <h1>EMI Calculator – Calculate Your Loan EMI Instantly</h1>
     <p>Calculate your home loan, car loan or personal loan EMI in seconds.</p>
   </div>
@@ -268,43 +217,27 @@ input[type=number] { -moz-appearance: textfield; }
 <section class="container seo-content">
 
 <h2>What is an EMI?</h2>
-<p>
-EMI stands for <strong>Equated Monthly Instalment</strong>. It is a fixed amount you pay to your lender every month until your loan is fully repaid. Each EMI has two components — the principal amount and the interest. In the early months, a larger portion of your EMI goes towards interest. As the loan matures, a higher portion goes towards reducing the principal.
-</p>
-<p>
-Whether you are taking a home loan, car loan, personal loan, or education loan in India, your EMI remains fixed throughout the loan tenure, making it easy to plan your monthly budget.
-</p>
+<p>EMI stands for <strong>Equated Monthly Instalment</strong>. It is a fixed amount you pay to your lender every month until your loan is fully repaid. Each EMI has two components — the principal amount and the interest. In the early months, a larger portion of your EMI goes towards interest. As the loan matures, a higher portion goes towards reducing the principal.</p>
+<p>Whether you are taking a home loan, car loan, personal loan, or education loan in India, your EMI remains fixed throughout the loan tenure, making it easy to plan your monthly budget.</p>
 
 <h2>How to Use This EMI Calculator</h2>
-<p>
-Using WealthToolsHub's EMI Calculator is quick and simple. Just enter three values — your loan amount, the annual interest rate offered by your bank or lender, and the loan tenure in years. Click <strong>Calculate EMI</strong> and instantly get your monthly EMI, total interest payable, and total repayment amount. You can adjust the values to compare different loan scenarios and choose the one that fits your budget best.
-</p>
+<p>Using WealthToolsHub's EMI Calculator is quick and simple. Just enter three values — your loan amount, the annual interest rate offered by your bank or lender, and the loan tenure in years. Click <strong>Calculate EMI</strong> and instantly get your monthly EMI, total interest payable, and total repayment amount. You can adjust the values to compare different loan scenarios and choose the one that fits your budget best.</p>
 
 <h2>EMI Calculation Formula</h2>
-<p>
-The standard EMI formula used by all banks and financial institutions in India is:
-</p>
+<p>The standard EMI formula used by all banks and financial institutions in India is:</p>
 <p><strong>EMI = P × r × (1+r)^n / [(1+r)^n – 1]</strong></p>
-<p>
-Where <strong>P</strong> = Principal loan amount, <strong>r</strong> = Monthly interest rate (annual rate ÷ 12 ÷ 100), and <strong>n</strong> = Total number of monthly instalments (years × 12). Our calculator uses this exact formula to give you accurate results instantly.
-</p>
+<p>Where <strong>P</strong> = Principal loan amount, <strong>r</strong> = Monthly interest rate (annual rate ÷ 12 ÷ 100), and <strong>n</strong> = Total number of monthly instalments (years × 12). Our calculator uses this exact formula to give you accurate results instantly.</p>
 
 <h2>Types of Loans You Can Calculate</h2>
 
 <h3>Home Loan EMI Calculator</h3>
-<p>
-Home loans in India typically range from 8% to 10% per annum with tenures up to 30 years. Use this calculator to find out your monthly home loan EMI and plan your purchase confidently.
-</p>
+<p>Home loans in India typically range from 8% to 10% per annum with tenures up to 30 years. Use this calculator to find out your monthly home loan EMI and plan your purchase confidently.</p>
 
 <h3>Car Loan EMI Calculator</h3>
-<p>
-Car loans usually come with interest rates between 8.5% to 12% and tenures of 1 to 7 years. Enter your car loan details to get your exact monthly EMI in seconds.
-</p>
+<p>Car loans usually come with interest rates between 8.5% to 12% and tenures of 1 to 7 years. Enter your car loan details to get your exact monthly EMI in seconds.</p>
 
 <h3>Personal Loan EMI Calculator</h3>
-<p>
-Personal loans carry higher interest rates, typically 10% to 24% per annum, with shorter tenures of 1 to 5 years. Use this calculator to check your personal loan EMI before applying.
-</p>
+<p>Personal loans carry higher interest rates, typically 10% to 24% per annum, with shorter tenures of 1 to 5 years. Use this calculator to check your personal loan EMI before applying.</p>
 
 <h2>Factors That Affect Your EMI</h2>
 
@@ -318,9 +251,7 @@ Personal loans carry higher interest rates, typically 10% to 24% per annum, with
 <p>A longer tenure reduces your EMI but increases total interest paid. A shorter tenure means higher EMI but you save on overall interest cost.</p>
 
 <h2>EMI Calculator vs Manual Calculation</h2>
-<p>
-Calculating EMI manually using the formula is complex and time-consuming, especially for large loan amounts or long tenures. Our free online EMI Calculator does the calculation instantly and accurately, saving you time and effort. You can also try multiple combinations of loan amount, rate, and tenure to find the most affordable option.
-</p>
+<p>Calculating EMI manually using the formula is complex and time-consuming, especially for large loan amounts or long tenures. Our free online EMI Calculator does the calculation instantly and accurately, saving you time and effort. You can also try multiple combinations of loan amount, rate, and tenure to find the most affordable option.</p>
 
 <h2>Tips to Reduce Your Loan EMI</h2>
 <ul>
@@ -331,7 +262,6 @@ Calculating EMI manually using the formula is complex and time-consuming, especi
 <li>Maintain a good credit score (750+) to qualify for lower rates</li>
 </ul>
 
-<!-- ✅ Internal link to SIP Calculator -->
 <p><strong>Also try:</strong> Use our <a href="sip-calculator.html">SIP Calculator</a> to plan your mutual fund investments alongside your loan repayments.</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
@@ -357,5 +287,22 @@ Calculating EMI manually using the formula is complex and time-consuming, especi
 </section>
 
 <script src="js/emi.js"></script>
+
+<!-- ✅ HAMBURGER MENU SCRIPT -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  });
+});
+</script>
+
 </body>
 </html>
