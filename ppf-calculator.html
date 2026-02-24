@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- ✅ SEO: Meta Title -->
+<title>PPF Calculator – Calculate Public Provident Fund Maturity Amount | WealthToolsHub</title>
+
+<!-- ✅ SEO: Meta Description -->
+<meta name="description" content="Use our free PPF Calculator to calculate your Public Provident Fund maturity amount, total interest earned and yearly breakdown. Plan your tax-free retirement savings with WealthToolsHub.">
+
+<!-- ✅ SEO: Keywords -->
+<meta name="keywords" content="PPF calculator, PPF calculator India, public provident fund calculator, PPF maturity calculator, PPF interest calculator, PPF return calculator 2026">
+
+<!-- ✅ SEO: Robots -->
+<meta name="robots" content="index, follow">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ✅ Canonical -->
+<link rel="canonical" href="https://www.wealthtoolshub.com/ppf-calculator">
+
+<!-- ✅ Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WealthToolsHub">
+<meta property="og:title" content="PPF Calculator – Calculate Public Provident Fund Maturity Amount | WealthToolsHub">
+<meta property="og:description" content="Free PPF Calculator India – Calculate your PPF maturity amount and tax-free interest earned instantly. Plan smarter with WealthToolsHub.">
+<meta property="og:url" content="https://www.wealthtoolshub.com/ppf-calculator">
+
+<!-- ✅ Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PPF Calculator – Calculate Public Provident Fund Maturity Amount | WealthToolsHub">
+<meta name="twitter:description" content="Free PPF Calculator India – Calculate your PPF maturity amount and tax-free returns instantly with WealthToolsHub.">
+
+<!-- ✅ JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "PPF Calculator",
+      "url": "https://www.wealthtoolshub.com/ppf-calculator",
+      "description": "Free online PPF Calculator to calculate Public Provident Fund maturity amount, interest earned and yearly breakdown.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "WealthToolsHub",
+        "url": "https://www.wealthtoolshub.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is PPF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PPF (Public Provident Fund) is a long-term government-backed savings scheme in India with a 15-year lock-in period. It offers tax-free interest and falls under the EEE (Exempt-Exempt-Exempt) tax category."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the current PPF interest rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The current PPF interest rate is 7.1% per annum, compounded annually. The rate is set by the Government of India and reviewed quarterly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum and maximum PPF investment per year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum PPF investment is ₹500 per year and the maximum is ₹1,50,000 per year. You can invest in a lump sum or in up to 12 instalments per year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extend my PPF account after 15 years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. After the 15-year maturity period, you can extend your PPF account in blocks of 5 years with or without fresh contributions. You can extend it any number of times."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PPF interest tax-free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PPF falls under the EEE (Exempt-Exempt-Exempt) tax category. The investment qualifies for Section 80C deduction, the interest earned is tax-free, and the maturity amount is also completely tax-free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I withdraw from PPF before 15 years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partial withdrawal is allowed from the 7th year onwards. Premature closure is permitted only in specific cases like life-threatening illness or higher education, after completing 5 years."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wealthtoolshub.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PPF Calculator",
+          "item": "https://www.wealthtoolshub.com/ppf-calculator"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* PPF Yearly Table */
+.ppf-table-wrapper {
+  overflow-x: auto;
+  margin-top: 24px;
+}
+.ppf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.ppf-table th {
+  background: #0f172a;
+  color: white;
+  padding: 10px 14px;
+  text-align: right;
+  font-weight: 600;
+}
+.ppf-table th:first-child { text-align: center; }
+.ppf-table td {
+  padding: 9px 14px;
+  text-align: right;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+.ppf-table td:first-child { text-align: center; font-weight: 600; color: #0f172a; }
+.ppf-table tr:nth-child(even) { background: #f8fafc; }
+.ppf-table tr:last-child td { font-weight: 700; color: #0f172a; background: #eff6ff; }
+.ppf-table tr:hover td { background: #eff6ff; }
+
+.table-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html" class="active">PPF Calculator</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>PPF Calculator – Calculate Your Public Provident Fund Returns</h1>
+    <p>Estimate your PPF maturity amount, total interest earned and get a year-by-year breakdown instantly.</p>
+  </div>
+</section>
+
+<section class="container calculator-card">
+
+<div class="input-side">
+
+  <label>Yearly Investment (₹)</label>
+  <input type="number" id="yearlyInvestment" value="150000" placeholder="Enter yearly investment">
+
+  <label>PPF Interest Rate (%)</label>
+  <input type="number" id="ppfRate" value="7.1" step="0.1" placeholder="Current rate: 7.1%">
+
+  <label>Investment Period (Years)</label>
+  <input type="number" id="ppfYears" value="15" min="15" max="50" placeholder="Min 15 years">
+
+  <button onclick="calculatePPF()">Calculate PPF</button>
+</div>
+
+<div class="result-side">
+  <div class="result-box">
+    <p>Maturity Amount</p>
+    <h2>₹ <span id="maturityAmount">0</span></h2>
+  </div>
+  <p>Total Invested: ₹ <span id="totalInvested">0</span></p>
+  <p>Total Interest Earned: ₹ <span id="totalInterest">0</span></p>
+  <canvas id="ppfChart"></canvas>
+</div>
+
+</section>
+
+<!-- Yearly Breakdown Table -->
+<section class="container">
+  <p class="table-title">📊 Year-by-Year PPF Breakdown</p>
+  <div class="ppf-table-wrapper">
+    <table class="ppf-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Opening Balance (₹)</th>
+          <th>Deposit (₹)</th>
+          <th>Interest Earned (₹)</th>
+          <th>Closing Balance (₹)</th>
+        </tr>
+      </thead>
+      <tbody id="ppfTableBody">
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SEO CONTENT SECTION -->
+<section class="container seo-content">
+
+<h2>What is PPF (Public Provident Fund)?</h2>
+<p>
+The Public Provident Fund (PPF) is a long-term, government-backed savings scheme introduced in India in 1968. It is one of the most popular tax-saving investment options for Indian citizens, offering a combination of safety, attractive returns, and complete tax exemption. PPF accounts can be opened at any post office or authorised bank branch across India.
+</p>
+<p>
+PPF falls under the <strong>EEE (Exempt-Exempt-Exempt)</strong> tax category — meaning the investment qualifies for Section 80C deduction, the interest earned is tax-free, and the maturity amount is also completely exempt from tax. This makes PPF one of the most tax-efficient investment instruments available in India.
+</p>
+
+<h2>How to Use This PPF Calculator</h2>
+<p>
+Enter your yearly investment amount (between ₹500 and ₹1,50,000), the current PPF interest rate (7.1% as of 2026), and your investment period in years (minimum 15 years). Click <strong>Calculate PPF</strong> to instantly see your total maturity amount, total invested amount, total interest earned, and a complete year-by-year breakdown table.
+</p>
+
+<h2>PPF Interest Calculation Formula</h2>
+<p>
+PPF interest is calculated on the minimum balance between the 5th and the last day of each month and credited to the account at the end of the financial year. For our calculator, we use the standard annual compounding formula:
+</p>
+<p><strong>F = P × [((1 + i)^n − 1) / i] × (1 + i)</strong></p>
+<p>
+Where <strong>F</strong> = Maturity amount, <strong>P</strong> = Annual investment, <strong>i</strong> = Annual interest rate, and <strong>n</strong> = Number of years. Since PPF allows investing at the beginning of the year, each instalment earns interest for the full year.
+</p>
+
+<h2>Key Features of PPF</h2>
+
+<h3>1. Tenure and Extension</h3>
+<p>PPF has a mandatory lock-in period of 15 years. After maturity, you can extend it in blocks of 5 years with or without fresh contributions, any number of times.</p>
+
+<h3>2. Investment Limits</h3>
+<p>You can invest a minimum of ₹500 and a maximum of ₹1,50,000 per financial year. Investments can be made in a lump sum or up to 12 instalments per year.</p>
+
+<h3>3. Tax Benefits</h3>
+<p>PPF investments qualify for deduction under Section 80C up to ₹1,50,000 per year. The interest and maturity amount are both fully tax-free — making PPF ideal for long-term tax-free wealth creation.</p>
+
+<h3>4. Loan Against PPF</h3>
+<p>You can avail a loan against your PPF account from the 3rd to the 6th year of the account. The loan amount can be up to 25% of the balance at the end of the 2nd year preceding the loan application year.</p>
+
+<h3>5. Partial Withdrawal</h3>
+<p>Partial withdrawal is allowed from the 7th year onwards — up to 50% of the balance at the end of the 4th year or the preceding year, whichever is lower.</p>
+
+<h2>PPF vs Other Investment Options</h2>
+
+<h3>PPF vs FD</h3>
+<p>PPF offers tax-free returns under EEE category while FD interest is fully taxable. For someone in the 30% tax bracket, a 7.1% PPF return is effectively better than an FD offering up to 8.5% after tax deduction. PPF is better for long-term, tax-efficient savings.</p>
+
+<h3>PPF vs SIP (Mutual Fund)</h3>
+<p>PPF offers guaranteed, risk-free returns with tax benefits but is limited to 15 years with a ₹1.5 lakh annual cap. SIP in mutual funds has no investment cap and can potentially generate higher returns over long periods, but carries market risk. A smart investor uses both — PPF for guaranteed tax-free savings and SIP for higher long-term wealth creation.</p>
+
+<h3>PPF vs NPS</h3>
+<p>Both PPF and NPS offer tax benefits under Section 80C. NPS offers an additional ₹50,000 deduction under Section 80CCD(1B). However, NPS has partial market exposure and annuity requirements at maturity, while PPF gives you 100% of the corpus tax-free.</p>
+
+<h2>Tips to Maximise PPF Returns</h2>
+<ul>
+<li>Invest before the 5th of April every year to earn interest for the full year</li>
+<li>Always invest the maximum ₹1,50,000 per year to maximise tax benefits and returns</li>
+<li>Extend your PPF account after 15 years instead of closing it — your corpus continues to earn tax-free interest</li>
+<li>Open a PPF account for your minor children to build a separate corpus for their education</li>
+<li>Avoid taking loans against PPF unless absolutely necessary — it reduces your compounding benefit</li>
+</ul>
+
+<!-- ✅ Internal links -->
+<p><strong>Also try:</strong> Use our <a href="fd-calculator.html">FD Calculator</a> to compare PPF with Fixed Deposit returns, our <a href="sip-calculator.html">SIP Calculator</a> for mutual fund planning, or our <a href="index.html">EMI Calculator</a> for loan repayment planning.</p>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+
+<h3>1. What is PPF?</h3>
+<p>PPF (Public Provident Fund) is a government-backed long-term savings scheme with a 15-year lock-in, offering tax-free interest under the EEE tax category.</p>
+
+<h3>2. What is the current PPF interest rate?</h3>
+<p>The current PPF interest rate is 7.1% per annum, compounded annually. It is set by the Government of India and reviewed quarterly.</p>
+
+<h3>3. What is the minimum and maximum PPF investment per year?</h3>
+<p>Minimum is ₹500 and maximum is ₹1,50,000 per financial year. You can invest in lump sum or up to 12 instalments.</p>
+
+<h3>4. Can I extend my PPF account after 15 years?</h3>
+<p>Yes. You can extend in blocks of 5 years with or without contributions, any number of times after the 15-year maturity.</p>
+
+<h3>5. Is PPF interest tax-free?</h3>
+<p>Yes. PPF is EEE — investment is deductible under 80C, interest is tax-free, and maturity amount is completely tax-free.</p>
+
+<h3>6. Can I withdraw from PPF before 15 years?</h3>
+<p>Partial withdrawal is allowed from the 7th year. Premature closure is only allowed after 5 years in specific cases like medical emergencies or higher education.</p>
+
+</section>
+
+<script>
+let ppfChartInstance = null;
+
+function calculatePPF() {
+  const P = parseFloat(document.getElementById('yearlyInvestment').value);
+  const rate = parseFloat(document.getElementById('ppfRate').value) / 100;
+  const years = parseInt(document.getElementById('ppfYears').value);
+
+  if (isNaN(P) || isNaN(rate) || isNaN(years) || P <= 0 || rate <= 0 || years < 15) {
+    alert('Please enter valid values. Minimum investment period is 15 years.');
+    return;
+  }
+
+  let balance = 0;
+  let totalInvested = 0;
+  const tableBody = document.getElementById('ppfTableBody');
+  tableBody.innerHTML = '';
+
+  for (let y = 1; y <= years; y++) {
+    const opening = balance;
+    const deposit = P;
+    totalInvested += deposit;
+    const interest = Math.round((opening + deposit) * rate);
+    balance = opening + deposit + interest;
+
+    const row = `
+      <tr>
+        <td>${y}</td>
+        <td>${formatINR(Math.round(opening))}</td>
+        <td>${formatINR(Math.round(deposit))}</td>
+        <td>${formatINR(interest)}</td>
+        <td>${formatINR(Math.round(balance))}</td>
+      </tr>`;
+    tableBody.innerHTML += row;
+  }
+
+  const maturity = Math.round(balance);
+  const interest = maturity - totalInvested;
+
+  document.getElementById('maturityAmount').textContent = formatINR(maturity);
+  document.getElementById('totalInvested').textContent = formatINR(totalInvested);
+  document.getElementById('totalInterest').textContent = formatINR(interest);
+
+  drawChart(totalInvested, interest);
+}
+
+function formatINR(num) {
+  return num.toLocaleString('en-IN');
+}
+
+function drawChart(invested, interest) {
+  const ctx = document.getElementById('ppfChart').getContext('2d');
+  if (ppfChartInstance) ppfChartInstance.destroy();
+  ppfChartInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Total Invested', 'Interest Earned'],
+      datasets: [{
+        data: [invested, interest],
+        backgroundColor: ['#1e3a8a', '#16a34a'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+}
+
+window.onload = function () { calculatePPF(); };
+</script>
+
+</body>
+</html>
