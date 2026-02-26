@@ -1,1 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- ✅ SEO: Meta Title -->
+<title>Income Tax Calculator 2025-26 – Calculate Tax Old & New Regime | WealthToolsHub</title>
+
+<!-- ✅ SEO: Meta Description -->
+<meta name="description" content="Use our free Income Tax Calculator for FY 2025-26. Compare tax under old and new regime instantly. Enter your income, deductions & get your exact tax liability in seconds.">
+
+<!-- ✅ SEO: Keywords -->
+<meta name="keywords" content="income tax calculator, income tax calculator 2025-26, income tax calculator India, old vs new tax regime calculator, tax calculator FY 2025-26, income tax calculator 2026">
+
+<!-- ✅ SEO: Robots -->
+<meta name="robots" content="index, follow">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ✅ Canonical -->
+<link rel="canonical" href="https://www.wealthtoolshub.com/income-tax-calculator">
+
+<!-- ✅ Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WealthToolsHub">
+<meta property="og:title" content="Income Tax Calculator 2025-26 – Old vs New Regime | WealthToolsHub">
+<meta property="og:description" content="Free Income Tax Calculator India FY 2025-26. Compare tax under old and new regime. Calculate your exact tax liability instantly.">
+<meta property="og:url" content="https://www.wealthtoolshub.com/income-tax-calculator">
+
+<!-- ✅ Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Income Tax Calculator 2025-26 – Old vs New Regime | WealthToolsHub">
+<meta name="twitter:description" content="Free Income Tax Calculator India FY 2025-26. Compare old and new tax regime instantly with WealthToolsHub.">
+
+<!-- ✅ JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Income Tax Calculator",
+      "url": "https://www.wealthtoolshub.com/income-tax-calculator",
+      "description": "Free Income Tax Calculator for FY 2025-26. Compare tax liability under old and new tax regime instantly.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "WealthToolsHub",
+        "url": "https://www.wealthtoolshub.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the income tax exemption limit for FY 2025-26?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the new tax regime, income up to ₹12 lakh is effectively tax-free due to the rebate under Section 87A. Under the old tax regime, the basic exemption limit is ₹2.5 lakh (₹3 lakh for senior citizens)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is better — old tax regime or new tax regime?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your deductions. If you have significant deductions like HRA, 80C, home loan interest, the old regime may save more tax. If your deductions are minimal, the new regime with lower slab rates is usually better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the standard deduction for salaried employees in FY 2025-26?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard deduction for salaried employees is ₹75,000 under the new tax regime and ₹50,000 under the old tax regime for FY 2025-26."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What deductions are available under Section 80C?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Section 80C allows deductions up to ₹1,50,000 per year for investments in PPF, ELSS, NSC, life insurance premiums, home loan principal repayment, tuition fees, and more. This is available only under the old tax regime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is HRA exempt from income tax?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HRA exemption is available only under the old tax regime. The exempt amount is the minimum of: actual HRA received, 50% of basic salary (metro cities) or 40% (non-metro), and actual rent paid minus 10% of basic salary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the surcharge on income tax in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Surcharge is applicable on income above ₹50 lakh. It is 10% for income between ₹50L–₹1Cr, 15% for ₹1Cr–₹2Cr, 25% for ₹2Cr–₹5Cr, and 37% for above ₹5Cr (under old regime). Under new regime, max surcharge is 25%."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wealthtoolshub.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Income Tax Calculator",
+          "item": "https://www.wealthtoolshub.com/income-tax-calculator"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* ===== TAX SPECIFIC STYLES ===== */
+.regime-toggle {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.regime-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0;
+  width: auto;
+}
+.regime-btn.active {
+  border-color: #1e3a8a;
+  background: #1e3a8a;
+  color: white;
+}
+
+.tax-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.tax-result-item {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+.tax-result-item p {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+.tax-result-item strong {
+  font-size: 16px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.compare-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #166534;
+  font-weight: 600;
+  text-align: center;
+}
+.compare-box.warning {
+  background: #fefce8;
+  border-color: #fde68a;
+  color: #854d0e;
+}
+
+.slab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.slab-table th {
+  background: #0f172a;
+  color: white;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+.slab-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+.slab-table tr:nth-child(even) { background: #f8fafc; }
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+.deduction-section {
+  display: none;
+}
+.deduction-section.visible {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .tax-result-grid { grid-template-columns: 1fr; }
+  .regime-btn { font-size: 13px; padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR WITH HAMBURGER -->
+<header class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html">PPF Calculator</a>
+      <a href="income-tax-calculator.html" class="active">Tax Calculator</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <div class="hamburger-lines">
+        <span></span><span></span><span></span>
+      </div>
+      Menu
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">EMI Calculator</a>
+    <a href="sip-calculator.html">SIP Calculator</a>
+    <a href="fd-calculator.html">FD Calculator</a>
+    <a href="ppf-calculator.html">PPF Calculator</a>
+    <a href="income-tax-calculator.html" class="active">Tax Calculator</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Income Tax Calculator FY 2025-26 – Compare Old & New Tax Regime</h1>
+    <p>Calculate your exact income tax liability and find out which tax regime saves you more money.</p>
+  </div>
+</section>
+
+<section class="container calculator-card">
+
+<div class="input-side">
+
+  <label>Annual Income (₹)</label>
+  <input type="number" id="annualIncome" value="1000000" placeholder="Enter annual income">
+
+  <label>Age Group</label>
+  <select id="ageGroup" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #d1d5db;background:#f9fafb;font-size:16px;color:#1e293b;outline:none;margin-top:4px;">
+    <option value="general">Below 60 years</option>
+    <option value="senior">60–80 years (Senior Citizen)</option>
+    <option value="supersenior">Above 80 years (Super Senior)</option>
+  </select>
+
+  <!-- OLD REGIME DEDUCTIONS -->
+  <hr class="section-divider">
+  <label style="color:#1e3a8a;font-size:13px;">OLD REGIME DEDUCTIONS</label>
+
+  <label>Section 80C (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹1,50,000</span></label>
+  <input type="number" id="sec80c" value="150000" placeholder="PPF, ELSS, LIC etc.">
+
+  <label>HRA Exemption (₹)</label>
+  <input type="number" id="hra" value="0" placeholder="House Rent Allowance">
+
+  <label>Section 80D - Health Insurance (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹25,000</span></label>
+  <input type="number" id="sec80d" value="25000" placeholder="Health insurance premium">
+
+  <label>Home Loan Interest 24(b) (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹2,00,000</span></label>
+  <input type="number" id="homeLoanInterest" value="0" placeholder="Interest on home loan">
+
+  <label>Other Deductions (₹)</label>
+  <input type="number" id="otherDeductions" value="0" placeholder="80E, 80G, NPS etc.">
+
+  <button onclick="calculateTax()">Calculate Tax</button>
+</div>
+
+<div class="result-side">
+
+  <!-- REGIME TOGGLE -->
+  <div class="regime-toggle">
+    <button class="regime-btn active" id="btnNew" onclick="showRegime('new')">New Regime</button>
+    <button class="regime-btn" id="btnOld" onclick="showRegime('old')">Old Regime</button>
+  </div>
+
+  <!-- NEW REGIME RESULTS -->
+  <div id="newRegimeResult">
+    <div class="result-box">
+      <p>Tax Payable (New Regime)</p>
+      <h2>₹ <span id="newTax">0</span></h2>
+    </div>
+    <div class="tax-result-grid">
+      <div class="tax-result-item">
+        <p>Taxable Income</p>
+        <strong>₹ <span id="newTaxableIncome">0</span></strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Effective Tax Rate</p>
+        <strong><span id="newEffectiveRate">0</span>%</strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Standard Deduction</p>
+        <strong>₹75,000</strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Cess (4%)</p>
+        <strong>₹ <span id="newCess">0</span></strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- OLD REGIME RESULTS -->
+  <div id="oldRegimeResult" style="display:none;">
+    <div class="result-box">
+      <p>Tax Payable (Old Regime)</p>
+      <h2>₹ <span id="oldTax">0</span></h2>
+    </div>
+    <div class="tax-result-grid">
+      <div class="tax-result-item">
+        <p>Taxable Income</p>
+        <strong>₹ <span id="oldTaxableIncome">0</span></strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Effective Tax Rate</p>
+        <strong><span id="oldEffectiveRate">0</span>%</strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Total Deductions</p>
+        <strong>₹ <span id="totalDeductions">0</span></strong>
+      </div>
+      <div class="tax-result-item">
+        <p>Cess (4%)</p>
+        <strong>₹ <span id="oldCess">0</span></strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON BOX -->
+  <div class="compare-box" id="compareBox">Calculate to see which regime saves more tax</div>
+
+  <canvas id="taxChart"></canvas>
+</div>
+
+</section>
+
+<!-- TAX SLAB TABLES -->
+<section class="container" style="margin-top:40px;">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:20px;">📊 Income Tax Slabs FY 2025-26</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-wrap:wrap;">
+
+    <div>
+      <h3 style="font-size:16px;color:#1e3a8a;margin-bottom:10px;font-weight:700;">New Tax Regime</h3>
+      <table class="slab-table">
+        <thead><tr><th>Income Slab</th><th>Tax Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Up to ₹4,00,000</td><td>Nil</td></tr>
+          <tr><td>₹4,00,001 – ₹8,00,000</td><td>5%</td></tr>
+          <tr><td>₹8,00,001 – ₹12,00,000</td><td>10%</td></tr>
+          <tr><td>₹12,00,001 – ₹16,00,000</td><td>15%</td></tr>
+          <tr><td>₹16,00,001 – ₹20,00,000</td><td>20%</td></tr>
+          <tr><td>₹20,00,001 – ₹24,00,000</td><td>25%</td></tr>
+          <tr><td>Above ₹24,00,000</td><td>30%</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:#64748b;margin-top:8px;">* Rebate u/s 87A: Tax nil for income up to ₹12L. Standard deduction ₹75,000.</p>
+    </div>
+
+    <div>
+      <h3 style="font-size:16px;color:#1e3a8a;margin-bottom:10px;font-weight:700;">Old Tax Regime (Below 60)</h3>
+      <table class="slab-table">
+        <thead><tr><th>Income Slab</th><th>Tax Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Up to ₹2,50,000</td><td>Nil</td></tr>
+          <tr><td>₹2,50,001 – ₹5,00,000</td><td>5%</td></tr>
+          <tr><td>₹5,00,001 – ₹10,00,000</td><td>20%</td></tr>
+          <tr><td>Above ₹10,00,000</td><td>30%</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:#64748b;margin-top:8px;">* Rebate u/s 87A: Tax nil for income up to ₹5L. Standard deduction ₹50,000.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEO CONTENT -->
+<section class="container seo-content">
+
+<h2>Income Tax Calculator for FY 2025-26</h2>
+<p>WealthToolsHub's free Income Tax Calculator helps you calculate your exact income tax liability for Financial Year 2025-26 (Assessment Year 2026-27). Enter your annual income, age group, and applicable deductions to instantly compare your tax payable under both the old and new tax regimes — and find out which one saves you more money.</p>
+
+<h2>Old Tax Regime vs New Tax Regime – Which is Better?</h2>
+<p>The biggest financial decision for salaried individuals in India today is choosing between the old and new tax regime. The <strong>new tax regime</strong> offers lower slab rates and a higher rebate (income up to ₹12 lakh is effectively tax-free), but does not allow most deductions. The <strong>old tax regime</strong> has higher slab rates but allows deductions under Section 80C, HRA, home loan interest, health insurance, and more.</p>
+<p>As a general rule — if your total deductions exceed ₹3.75 lakh, the old regime may save more tax. If your deductions are below this threshold, the new regime is likely better. Use our calculator above to get the exact comparison for your income.</p>
+
+<h2>Key Deductions Under the Old Tax Regime</h2>
+
+<h3>Section 80C – Up to ₹1,50,000</h3>
+<p>The most popular tax deduction in India. Includes PPF, ELSS mutual funds, NSC, life insurance premiums, home loan principal repayment, EPF contribution, ULIP, Sukanya Samriddhi Yojana, and children's tuition fees.</p>
+
+<h3>HRA – House Rent Allowance</h3>
+<p>If you pay rent and receive HRA from your employer, you can claim exemption on the minimum of: actual HRA received, 50% of basic salary (metro) or 40% (non-metro), and actual rent paid minus 10% of basic salary.</p>
+
+<h3>Section 24(b) – Home Loan Interest</h3>
+<p>Interest paid on a home loan for a self-occupied property is deductible up to ₹2,00,000 per year under Section 24(b) of the Income Tax Act.</p>
+
+<h3>Section 80D – Health Insurance</h3>
+<p>Premium paid for health insurance is deductible up to ₹25,000 for self, spouse, and children. An additional ₹25,000 (₹50,000 for senior citizens) is allowed for parents' health insurance.</p>
+
+<h3>Standard Deduction</h3>
+<p>Salaried employees get a flat standard deduction of ₹50,000 under the old regime and ₹75,000 under the new regime — no proof required.</p>
+
+<h2>New Tax Regime – Key Features for FY 2025-26</h2>
+<p>The new tax regime has been made the default regime from FY 2023-24. Key benefits include lower tax slabs starting from 5%, a standard deduction of ₹75,000, and an enhanced rebate under Section 87A making income up to ₹12 lakh completely tax-free for resident individuals. However, most exemptions and deductions are not available under this regime.</p>
+
+<h2>How is Income Tax Calculated in India?</h2>
+<p>Income tax in India is calculated on your total taxable income after deducting applicable exemptions and deductions. The tax is computed slab-wise — different portions of your income are taxed at different rates. A health and education cess of 4% is added on the total tax payable. Surcharge is applicable for income above ₹50 lakh.</p>
+
+<h2>Tips to Save Income Tax in India</h2>
+<ul>
+<li>Maximise Section 80C investments (PPF, ELSS, LIC) up to ₹1,50,000 under old regime</li>
+<li>Invest ₹50,000 in NPS for additional deduction under Section 80CCD(1B)</li>
+<li>Pay health insurance premium for self and parents to claim 80D deduction</li>
+<li>Claim HRA exemption if you live in rented accommodation</li>
+<li>Use our calculator every year to compare both regimes before filing your ITR</li>
+</ul>
+
+<p><strong>Also try:</strong> Use our <a href="ppf-calculator.html">PPF Calculator</a> to plan your 80C investments, our <a href="sip-calculator.html">SIP Calculator</a> for ELSS mutual fund planning, or our <a href="index.html">EMI Calculator</a> for home loan planning.</p>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+
+<h3>1. What is the income tax exemption limit for FY 2025-26?</h3>
+<p>Under the new tax regime, income up to ₹12 lakh is effectively tax-free due to rebate under Section 87A. Under the old regime, the basic exemption limit is ₹2.5 lakh (₹3 lakh for senior citizens).</p>
+
+<h3>2. Which is better — old or new tax regime?</h3>
+<p>If your total deductions are high (₹3.75L+), the old regime may save more. If deductions are low, the new regime with lower slabs is usually better. Use our calculator above to compare.</p>
+
+<h3>3. What is the standard deduction for FY 2025-26?</h3>
+<p>₹75,000 under the new regime and ₹50,000 under the old regime for salaried employees and pensioners.</p>
+
+<h3>4. What deductions are available under Section 80C?</h3>
+<p>Section 80C allows up to ₹1,50,000 deduction for PPF, ELSS, NSC, LIC, home loan principal, tuition fees, and more — only under the old regime.</p>
+
+<h3>5. Is HRA exempt from income tax?</h3>
+<p>HRA exemption is available only under the old tax regime. The exempt amount is the minimum of actual HRA, 50%/40% of basic salary, and actual rent minus 10% of basic salary.</p>
+
+<h3>6. What is the surcharge on income tax?</h3>
+<p>Surcharge applies on income above ₹50 lakh — 10% for ₹50L–₹1Cr, 15% for ₹1Cr–₹2Cr, 25% for ₹2Cr–₹5Cr, and 37% above ₹5Cr (old regime). Max surcharge under new regime is 25%.</p>
+
+</section>
+
+<script>
+let taxChartInstance = null;
+let currentRegime = 'new';
+
+function showRegime(regime) {
+  currentRegime = regime;
+  document.getElementById('newRegimeResult').style.display = regime === 'new' ? 'block' : 'none';
+  document.getElementById('oldRegimeResult').style.display = regime === 'old' ? 'block' : 'none';
+  document.getElementById('btnNew').classList.toggle('active', regime === 'new');
+  document.getElementById('btnOld').classList.toggle('active', regime === 'old');
+}
+
+function formatINR(num) {
+  return Math.round(num).toLocaleString('en-IN');
+}
+
+function calcNewRegimeTax(income, age) {
+  // Standard deduction: 75000
+  let taxableIncome = Math.max(0, income - 75000);
+
+  let tax = 0;
+  if (taxableIncome <= 400000) tax = 0;
+  else if (taxableIncome <= 800000) tax = (taxableIncome - 400000) * 0.05;
+  else if (taxableIncome <= 1200000) tax = 20000 + (taxableIncome - 800000) * 0.10;
+  else if (taxableIncome <= 1600000) tax = 60000 + (taxableIncome - 1200000) * 0.15;
+  else if (taxableIncome <= 2000000) tax = 120000 + (taxableIncome - 1600000) * 0.20;
+  else if (taxableIncome <= 2400000) tax = 200000 + (taxableIncome - 2000000) * 0.25;
+  else tax = 300000 + (taxableIncome - 2400000) * 0.30;
+
+  // Rebate 87A: if taxable income <= 1200000, tax = 0
+  if (taxableIncome <= 1200000) tax = 0;
+
+  const cess = tax * 0.04;
+  const total = tax + cess;
+  return { taxableIncome, tax: total, cess, effectiveRate: income > 0 ? ((total / income) * 100).toFixed(2) : 0 };
+}
+
+function calcOldRegimeTax(income, age, deductions) {
+  const stdDeduction = 50000;
+  let totalDeductions = stdDeduction + deductions;
+  let taxableIncome = Math.max(0, income - totalDeductions);
+
+  let exemption = age === 'supersenior' ? 500000 : age === 'senior' ? 300000 : 250000;
+  let tax = 0;
+
+  if (taxableIncome <= exemption) {
+    tax = 0;
+  } else if (taxableIncome <= 500000) {
+    tax = (taxableIncome - exemption) * 0.05;
+  } else if (taxableIncome <= 1000000) {
+    tax = (500000 - exemption) * 0.05 + (taxableIncome - 500000) * 0.20;
+  } else {
+    tax = (500000 - exemption) * 0.05 + 500000 * 0.20 + (taxableIncome - 1000000) * 0.30;
+  }
+
+  // Rebate 87A: if taxable income <= 500000, tax = 0 (old regime)
+  if (taxableIncome <= 500000) tax = 0;
+
+  const cess = tax * 0.04;
+  const total = tax + cess;
+  return {
+    taxableIncome,
+    tax: total,
+    cess,
+    totalDeductions,
+    effectiveRate: income > 0 ? ((total / income) * 100).toFixed(2) : 0
+  };
+}
+
+function calculateTax() {
+  const income = parseFloat(document.getElementById('annualIncome').value) || 0;
+  const age = document.getElementById('ageGroup').value;
+  const sec80c = Math.min(parseFloat(document.getElementById('sec80c').value) || 0, 150000);
+  const hra = parseFloat(document.getElementById('hra').value) || 0;
+  const sec80d = Math.min(parseFloat(document.getElementById('sec80d').value) || 0, 25000);
+  const homeLoan = Math.min(parseFloat(document.getElementById('homeLoanInterest').value) || 0, 200000);
+  const other = parseFloat(document.getElementById('otherDeductions').value) || 0;
+
+  const oldDeductions = sec80c + hra + sec80d + homeLoan + other;
+
+  const newResult = calcNewRegimeTax(income, age);
+  const oldResult = calcOldRegimeTax(income, age, oldDeductions);
+
+  // Update new regime display
+  document.getElementById('newTax').textContent = formatINR(newResult.tax);
+  document.getElementById('newTaxableIncome').textContent = formatINR(newResult.taxableIncome);
+  document.getElementById('newEffectiveRate').textContent = newResult.effectiveRate;
+  document.getElementById('newCess').textContent = formatINR(newResult.cess);
+
+  // Update old regime display
+  document.getElementById('oldTax').textContent = formatINR(oldResult.tax);
+  document.getElementById('oldTaxableIncome').textContent = formatINR(oldResult.taxableIncome);
+  document.getElementById('oldEffectiveRate').textContent = oldResult.effectiveRate;
+  document.getElementById('totalDeductions').textContent = formatINR(oldResult.totalDeductions);
+  document.getElementById('oldCess').textContent = formatINR(oldResult.cess);
+
+  // Comparison
+  const compareBox = document.getElementById('compareBox');
+  const savings = Math.abs(newResult.tax - oldResult.tax);
+  if (newResult.tax < oldResult.tax) {
+    compareBox.className = 'compare-box';
+    compareBox.textContent = `✅ New Regime saves you ₹${formatINR(savings)} more in taxes!`;
+  } else if (oldResult.tax < newResult.tax) {
+    compareBox.className = 'compare-box';
+    compareBox.textContent = `✅ Old Regime saves you ₹${formatINR(savings)} more in taxes!`;
+  } else {
+    compareBox.className = 'compare-box warning';
+    compareBox.textContent = `Both regimes result in the same tax liability.`;
+  }
+
+  drawChart(newResult.tax, oldResult.tax);
+}
+
+function drawChart(newTax, oldTax) {
+  const ctx = document.getElementById('taxChart').getContext('2d');
+  if (taxChartInstance) taxChartInstance.destroy();
+  taxChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['New Regime', 'Old Regime'],
+      datasets: [{
+        label: 'Tax Payable (₹)',
+        data: [Math.round(newTax), Math.round(oldTax)],
+        backgroundColor: ['#1e3a8a', '#16a34a'],
+        borderRadius: 8,
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return '₹ ' + context.raw.toLocaleString('en-IN');
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return '₹' + (value / 100000).toFixed(1) + 'L';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+window.onload = function() { calculateTax(); };
+</script>
+
+<!-- ✅ HAMBURGER SCRIPT -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
 
