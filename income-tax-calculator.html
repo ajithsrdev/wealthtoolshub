@@ -301,7 +301,8 @@
   <label>HRA Exemption (₹)</label>
   <input type="number" id="hra" value="0" placeholder="House Rent Allowance">
 
-  <label>Section 80D - Health Insurance (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹25,000</span></label>
+  <!-- BUG FIX 3: Label updated to reflect age-based limit -->
+  <label>Section 80D - Health Insurance (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹25,000 (₹50,000 for Senior Citizens)</span></label>
   <input type="number" id="sec80d" value="25000" placeholder="Health insurance premium">
 
   <label>Home Loan Interest 24(b) (₹) <span style="font-weight:400;font-size:12px;color:#94a3b8;">Max ₹2,00,000</span></label>
@@ -333,7 +334,8 @@
         <strong>₹ <span id="newTaxableIncome">0</span></strong>
       </div>
       <div class="tax-result-item">
-        <p>Effective Tax Rate</p>
+        <!-- BUG FIX 5: Label clarified to include cess -->
+        <p>Effective Rate (incl. cess)</p>
         <strong><span id="newEffectiveRate">0</span>%</strong>
       </div>
       <div class="tax-result-item">
@@ -359,7 +361,8 @@
         <strong>₹ <span id="oldTaxableIncome">0</span></strong>
       </div>
       <div class="tax-result-item">
-        <p>Effective Tax Rate</p>
+        <!-- BUG FIX 5: Label clarified to include cess -->
+        <p>Effective Rate (incl. cess)</p>
         <strong><span id="oldEffectiveRate">0</span>%</strong>
       </div>
       <div class="tax-result-item">
@@ -503,50 +506,110 @@ function formatINR(num) {
   return Math.round(num).toLocaleString('en-IN');
 }
 
-function calcNewRegimeTax(income, age) {
-  // Standard deduction: 75000
-  let taxableIncome = Math.max(0, income - 75000);
-
-  let tax = 0;
-  if (taxableIncome <= 400000) tax = 0;
-  else if (taxableIncome <= 800000) tax = (taxableIncome - 400000) * 0.05;
-  else if (taxableIncome <= 1200000) tax = 20000 + (taxableIncome - 800000) * 0.10;
-  else if (taxableIncome <= 1600000) tax = 60000 + (taxableIncome - 1200000) * 0.15;
-  else if (taxableIncome <= 2000000) tax = 120000 + (taxableIncome - 1600000) * 0.20;
-  else if (taxableIncome <= 2400000) tax = 200000 + (taxableIncome - 2000000) * 0.25;
-  else tax = 300000 + (taxableIncome - 2400000) * 0.30;
-
-  // Rebate 87A: if taxable income <= 1200000, tax = 0
-  if (taxableIncome <= 1200000) tax = 0;
-
-  const cess = tax * 0.04;
-  const total = tax + cess;
-  return { taxableIncome, tax: total, cess, effectiveRate: income > 0 ? ((total / income) * 100).toFixed(2) : 0 };
+// ─── BUG FIX 4: Surcharge calculation ───────────────────────────────────────
+function applySurcharge(baseTax, taxableIncome, isNewRegime) {
+  let surchargeRate = 0;
+  if (taxableIncome > 5000000 && taxableIncome <= 10000000) {
+    surchargeRate = 0.10;
+  } else if (taxableIncome > 10000000 && taxableIncome <= 20000000) {
+    surchargeRate = 0.15;
+  } else if (taxableIncome > 20000000 && taxableIncome <= 50000000) {
+    surchargeRate = 0.25;
+  } else if (taxableIncome > 50000000) {
+    // New regime: max surcharge is 25%; Old regime: 37%
+    surchargeRate = isNewRegime ? 0.25 : 0.37;
+  }
+  return baseTax * surchargeRate;
 }
 
+// ─── BUG FIX 1: New Regime with marginal relief ──────────────────────────────
+function calcNewRegimeTax(income) {
+  // Standard deduction: ₹75,000
+  let taxableIncome = Math.max(0, income - 75000);
+
+  let baseTax = 0;
+  if (taxableIncome <= 400000) {
+    baseTax = 0;
+  } else if (taxableIncome <= 800000) {
+    baseTax = (taxableIncome - 400000) * 0.05;
+  } else if (taxableIncome <= 1200000) {
+    baseTax = 20000 + (taxableIncome - 800000) * 0.10;
+  } else if (taxableIncome <= 1600000) {
+    baseTax = 60000 + (taxableIncome - 1200000) * 0.15;
+  } else if (taxableIncome <= 2000000) {
+    baseTax = 120000 + (taxableIncome - 1600000) * 0.20;
+  } else if (taxableIncome <= 2400000) {
+    baseTax = 200000 + (taxableIncome - 2000000) * 0.25;
+  } else {
+    baseTax = 300000 + (taxableIncome - 2400000) * 0.30;
+  }
+
+  // Rebate u/s 87A: zero tax if taxable income <= ₹12,00,000
+  if (taxableIncome <= 1200000) {
+    baseTax = 0;
+  } else {
+    // BUG FIX 1: Apply marginal relief for income just above ₹12L threshold
+    // Tax cannot exceed the amount by which income exceeds ₹12,00,000
+    const marginalRelief = baseTax - (taxableIncome - 1200000);
+    if (marginalRelief > 0) {
+      baseTax = baseTax - marginalRelief;
+    }
+  }
+
+  // BUG FIX 4: Add surcharge for income above ₹50L
+  const surcharge = applySurcharge(baseTax, taxableIncome, true);
+  baseTax += surcharge;
+
+  const cess = baseTax * 0.04;
+  const total = baseTax + cess;
+  return {
+    taxableIncome,
+    tax: total,
+    cess,
+    effectiveRate: income > 0 ? ((total / income) * 100).toFixed(2) : 0
+  };
+}
+
+// ─── BUG FIX 2 & 3: Old Regime with correct senior slab logic & 80D cap ──────
 function calcOldRegimeTax(income, age, deductions) {
   const stdDeduction = 50000;
   let totalDeductions = stdDeduction + deductions;
   let taxableIncome = Math.max(0, income - totalDeductions);
 
+  // Exemption limits by age
   let exemption = age === 'supersenior' ? 500000 : age === 'senior' ? 300000 : 250000;
-  let tax = 0;
+  let baseTax = 0;
 
   if (taxableIncome <= exemption) {
-    tax = 0;
+    baseTax = 0;
   } else if (taxableIncome <= 500000) {
-    tax = (taxableIncome - exemption) * 0.05;
+    // Only applicable for general & senior (supersenior exemption IS 5L so this block won't run for them)
+    baseTax = (taxableIncome - exemption) * 0.05;
   } else if (taxableIncome <= 1000000) {
-    tax = (500000 - exemption) * 0.05 + (taxableIncome - 500000) * 0.20;
+    // BUG FIX 2: Super Senior (exemption=5L) jumps straight to 20%; others use 5% slab first
+    if (exemption < 500000) {
+      baseTax = (500000 - exemption) * 0.05 + (taxableIncome - 500000) * 0.20;
+    } else {
+      baseTax = (taxableIncome - exemption) * 0.20;
+    }
   } else {
-    tax = (500000 - exemption) * 0.05 + 500000 * 0.20 + (taxableIncome - 1000000) * 0.30;
+    // BUG FIX 2: Same fix for the 30% slab
+    if (exemption < 500000) {
+      baseTax = (500000 - exemption) * 0.05 + 500000 * 0.20 + (taxableIncome - 1000000) * 0.30;
+    } else {
+      baseTax = (500000 - exemption) * 0.20 + (taxableIncome - 1000000) * 0.30;
+    }
   }
 
-  // Rebate 87A: if taxable income <= 500000, tax = 0 (old regime)
-  if (taxableIncome <= 500000) tax = 0;
+  // Rebate u/s 87A: zero tax if taxable income <= ₹5,00,000 (old regime)
+  if (taxableIncome <= 500000) baseTax = 0;
 
-  const cess = tax * 0.04;
-  const total = tax + cess;
+  // BUG FIX 4: Add surcharge for income above ₹50L
+  const surcharge = applySurcharge(baseTax, taxableIncome, false);
+  baseTax += surcharge;
+
+  const cess = baseTax * 0.04;
+  const total = baseTax + cess;
   return {
     taxableIncome,
     tax: total,
@@ -561,13 +624,17 @@ function calculateTax() {
   const age = document.getElementById('ageGroup').value;
   const sec80c = Math.min(parseFloat(document.getElementById('sec80c').value) || 0, 150000);
   const hra = parseFloat(document.getElementById('hra').value) || 0;
-  const sec80d = Math.min(parseFloat(document.getElementById('sec80d').value) || 0, 25000);
+
+  // BUG FIX 3: 80D cap is ₹50,000 for senior/super-senior, ₹25,000 for others
+  const sec80dLimit = (age === 'senior' || age === 'supersenior') ? 50000 : 25000;
+  const sec80d = Math.min(parseFloat(document.getElementById('sec80d').value) || 0, sec80dLimit);
+
   const homeLoan = Math.min(parseFloat(document.getElementById('homeLoanInterest').value) || 0, 200000);
   const other = parseFloat(document.getElementById('otherDeductions').value) || 0;
 
   const oldDeductions = sec80c + hra + sec80d + homeLoan + other;
 
-  const newResult = calcNewRegimeTax(income, age);
+  const newResult = calcNewRegimeTax(income);
   const oldResult = calcOldRegimeTax(income, age, oldDeductions);
 
   // Update new regime display
@@ -641,7 +708,8 @@ function drawChart(newTax, oldTax) {
   });
 }
 
-window.onload = function() { calculateTax(); };
+// BUG FIX: Use DOMContentLoaded instead of window.onload for reliability
+document.addEventListener('DOMContentLoaded', function() { calculateTax(); });
 </script>
 
 <!-- ✅ HAMBURGER SCRIPT -->
