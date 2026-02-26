@@ -3,36 +3,25 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- ✅ CHANGED: Better meta title with primary keyword -->
 <title>SIP Calculator – Calculate Mutual Fund SIP Returns Online | WealthToolsHub</title>
 
-<!-- ✅ CHANGED: Improved meta description (action-driven, 155 chars) -->
 <meta name="description" content="Use our free SIP Calculator to estimate your mutual fund returns instantly. Enter monthly investment, expected return & duration to see your wealth grow. Plan smarter with WealthToolsHub.">
-
-<!-- ✅ ADDED: Keywords meta tag -->
 <meta name="keywords" content="SIP calculator, SIP calculator India, mutual fund SIP calculator, SIP return calculator, monthly SIP calculator, SIP investment calculator 2026">
-
-<!-- ✅ ADDED: Robots -->
 <meta name="robots" content="index, follow">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ UNCHANGED: Canonical -->
 <link rel="canonical" href="https://www.wealthtoolshub.com/sip-calculator">
 
-<!-- ✅ ADDED: Open Graph Tags -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WealthToolsHub">
 <meta property="og:title" content="SIP Calculator – Calculate Mutual Fund SIP Returns | WealthToolsHub">
 <meta property="og:description" content="Free SIP Calculator India – Estimate your mutual fund corpus instantly. Plan your financial goals with WealthToolsHub.">
 <meta property="og:url" content="https://www.wealthtoolshub.com/sip-calculator">
 
-<!-- ✅ ADDED: Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIP Calculator – Calculate Mutual Fund SIP Returns | WealthToolsHub">
 <meta name="twitter:description" content="Free SIP Calculator India – Estimate your mutual fund corpus instantly. Plan your financial goals with WealthToolsHub.">
 
-<!-- ✅ ADDED: JSON-LD Schema Markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,9 +122,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body style="overflow-x:hidden;">
 
-<!-- ✅ UPDATED NAVBAR WITH HAMBURGER -->
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
@@ -165,35 +154,37 @@
 <section class="hero">
   <div class="container">
     <h1>SIP Calculator – Estimate Your Mutual Fund Returns Instantly</h1>
-    <p>Plan your mutual fund investment smartly.</p>
+    <p>Plan your mutual fund investment smartly and see how wealth grows over time.</p>
   </div>
 </section>
 
 <section class="container calculator-card">
 
 <div class="input-side">
-<label>Monthly Investment (₹)</label>
-<input type="number" id="monthlyInvestment" value="5000">
+  <label>Monthly Investment (₹)</label>
+  <input type="number" id="monthlyInvestment" value="5000" placeholder="Enter monthly SIP amount">
 
-<label>Expected Return (%)</label>
-<input type="number" id="annualReturn" value="12">
+  <label>Expected Return (%)</label>
+  <input type="number" id="annualReturn" value="12" placeholder="Expected annual return">
 
-<label>Duration (Years)</label>
-<input type="number" id="years" value="10">
+  <label>Duration (Years)</label>
+  <input type="number" id="years" value="10" placeholder="Investment duration in years">
 
-<button onclick="calculateSIP()">Calculate SIP</button>
+  <button onclick="calculateSIP()">Calculate SIP</button>
 </div>
 
 <div class="result-side">
-<div class="result-box">
-<p>Estimated Corpus</p>
-<h2>₹ <span id="totalValue">0</span></h2>
-</div>
+  <div class="result-box">
+    <p>Estimated Corpus</p>
+    <h2>₹ <span id="totalValue">0</span></h2>
+  </div>
 
-<p>Total Invested: ₹ <span id="totalInvested">0</span></p>
-<p>Estimated Returns: ₹ <span id="estimatedReturns">0</span></p>
+  <p>Total Invested: ₹ <span id="totalInvested">0</span></p>
+  <p>Estimated Returns: ₹ <span id="estimatedReturns">0</span></p>
 
-<canvas id="sipChart"></canvas>
+  <div style="position:relative;width:100%;max-width:100%;overflow:hidden;">
+    <canvas id="sipChart"></canvas>
+  </div>
 </div>
 
 </section>
@@ -246,8 +237,8 @@
 
 <ul>
 <li>P = Monthly investment amount</li>
-<li>r = Monthly rate of return</li>
-<li>n = Total number of months</li>
+<li>r = Monthly rate of return (annual rate ÷ 12 ÷ 100)</li>
+<li>n = Total number of months (years × 12)</li>
 </ul>
 
 <p>This formula considers that each monthly investment grows for a different period, making SIP calculation slightly more complex than simple interest.</p>
@@ -280,7 +271,8 @@
 <li>Avoid stopping SIP during short-term market corrections</li>
 </ul>
 
-<p><strong>Also try:</strong> Use our <a href="index.html">EMI Calculator</a> to calculate your monthly loan repayment alongside your SIP investments.</p>
+<!-- ✅ FIX: Expanded cross-links for better internal SEO -->
+<p><strong>Also try:</strong> Use our <a href="index.html">EMI Calculator</a> to plan your loan repayments, our <a href="fd-calculator.html">FD Calculator</a> to compare SIP vs Fixed Deposit returns, our <a href="ppf-calculator.html">PPF Calculator</a> for tax-free long-term savings, or our <a href="income-tax-calculator.html">Income Tax Calculator</a> to see how ELSS SIP saves you tax under Section 80C.</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
 
@@ -304,9 +296,79 @@
 
 </section>
 
-<script src="js/sip.js"></script>
+<!-- ✅ FIX: Inline JS instead of external sip.js dependency + auto-calculate on load -->
+<script>
+let sipChartInstance = null;
 
-<!-- ✅ HAMBURGER MENU SCRIPT -->
+function formatINR(num) {
+  return Math.round(num).toLocaleString('en-IN');
+}
+
+function calculateSIP() {
+  const P = parseFloat(document.getElementById('monthlyInvestment').value) || 0;
+  const annualRate = parseFloat(document.getElementById('annualReturn').value) || 0;
+  const years = parseFloat(document.getElementById('years').value) || 0;
+
+  const r = annualRate / 12 / 100;
+  const n = years * 12;
+
+  let futureValue = 0;
+  if (r === 0) {
+    futureValue = P * n;
+  } else {
+    futureValue = P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+  }
+
+  const totalInvested = P * n;
+  const estimatedReturns = futureValue - totalInvested;
+
+  document.getElementById('totalValue').textContent = formatINR(futureValue);
+  document.getElementById('totalInvested').textContent = formatINR(totalInvested);
+  document.getElementById('estimatedReturns').textContent = formatINR(estimatedReturns);
+
+  drawChart(totalInvested, estimatedReturns);
+}
+
+function drawChart(invested, returns) {
+  const ctx = document.getElementById('sipChart').getContext('2d');
+  if (sipChartInstance) sipChartInstance.destroy();
+  sipChartInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Total Invested', 'Estimated Returns'],
+      datasets: [{
+        data: [Math.round(invested), Math.round(returns)],
+        backgroundColor: ['#1e3a8a', '#16a34a'],
+        borderWidth: 0,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { font: { size: 13 }, padding: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return '₹ ' + context.raw.toLocaleString('en-IN');
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+// ✅ FIX: Auto-calculate with default values on page load
+document.addEventListener('DOMContentLoaded', function () {
+  calculateSIP();
+});
+</script>
+
+<!-- HAMBURGER SCRIPT -->
 <script>
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
