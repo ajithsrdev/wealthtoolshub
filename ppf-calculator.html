@@ -134,46 +134,22 @@
 
 <style>
 /* PPF Yearly Table */
-.ppf-table-wrapper {
-  overflow-x: auto;
-  margin-top: 24px;
-}
-.ppf-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-.ppf-table th {
-  background: #0f172a;
-  color: white;
-  padding: 10px 14px;
-  text-align: right;
-  font-weight: 600;
-}
+.ppf-table-wrapper { overflow-x: auto; margin-top: 24px; }
+.ppf-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ppf-table th { background: #0f172a; color: white; padding: 10px 14px; text-align: right; font-weight: 600; }
 .ppf-table th:first-child { text-align: center; }
-.ppf-table td {
-  padding: 9px 14px;
-  text-align: right;
-  border-bottom: 1px solid #e2e8f0;
-  color: #475569;
-}
+.ppf-table td { padding: 9px 14px; text-align: right; border-bottom: 1px solid #e2e8f0; color: #475569; }
 .ppf-table td:first-child { text-align: center; font-weight: 600; color: #0f172a; }
 .ppf-table tr:nth-child(even) { background: #f8fafc; }
 .ppf-table tr:last-child td { font-weight: 700; color: #0f172a; background: #eff6ff; }
 .ppf-table tr:hover td { background: #eff6ff; }
-
-.table-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-top: 36px;
-  margin-bottom: 12px;
-}
+.table-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 36px; margin-bottom: 12px; }
 </style>
 </head>
 
 <body>
 
+<!-- ✅ UPDATED NAVBAR WITH HAMBURGER -->
 <header class="navbar">
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
@@ -183,6 +159,18 @@
       <a href="fd-calculator.html">FD Calculator</a>
       <a href="ppf-calculator.html" class="active">PPF Calculator</a>
     </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <div class="hamburger-lines">
+        <span></span><span></span><span></span>
+      </div>
+      Menu
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">EMI Calculator</a>
+    <a href="sip-calculator.html">SIP Calculator</a>
+    <a href="fd-calculator.html">FD Calculator</a>
+    <a href="ppf-calculator.html" class="active">PPF Calculator</a>
   </div>
 </header>
 
@@ -196,7 +184,6 @@
 <section class="container calculator-card">
 
 <div class="input-side">
-
   <label>Yearly Investment (₹)</label>
   <input type="number" id="yearlyInvestment" value="150000" placeholder="Enter yearly investment">
 
@@ -235,9 +222,7 @@
           <th>Closing Balance (₹)</th>
         </tr>
       </thead>
-      <tbody id="ppfTableBody">
-        <!-- Filled by JS -->
-      </tbody>
+      <tbody id="ppfTableBody"></tbody>
     </table>
   </div>
 </section>
@@ -246,26 +231,16 @@
 <section class="container seo-content">
 
 <h2>What is PPF (Public Provident Fund)?</h2>
-<p>
-The Public Provident Fund (PPF) is a long-term, government-backed savings scheme introduced in India in 1968. It is one of the most popular tax-saving investment options for Indian citizens, offering a combination of safety, attractive returns, and complete tax exemption. PPF accounts can be opened at any post office or authorised bank branch across India.
-</p>
-<p>
-PPF falls under the <strong>EEE (Exempt-Exempt-Exempt)</strong> tax category — meaning the investment qualifies for Section 80C deduction, the interest earned is tax-free, and the maturity amount is also completely exempt from tax. This makes PPF one of the most tax-efficient investment instruments available in India.
-</p>
+<p>The Public Provident Fund (PPF) is a long-term, government-backed savings scheme introduced in India in 1968. It is one of the most popular tax-saving investment options for Indian citizens, offering a combination of safety, attractive returns, and complete tax exemption. PPF accounts can be opened at any post office or authorised bank branch across India.</p>
+<p>PPF falls under the <strong>EEE (Exempt-Exempt-Exempt)</strong> tax category — meaning the investment qualifies for Section 80C deduction, the interest earned is tax-free, and the maturity amount is also completely exempt from tax. This makes PPF one of the most tax-efficient investment instruments available in India.</p>
 
 <h2>How to Use This PPF Calculator</h2>
-<p>
-Enter your yearly investment amount (between ₹500 and ₹1,50,000), the current PPF interest rate (7.1% as of 2026), and your investment period in years (minimum 15 years). Click <strong>Calculate PPF</strong> to instantly see your total maturity amount, total invested amount, total interest earned, and a complete year-by-year breakdown table.
-</p>
+<p>Enter your yearly investment amount (between ₹500 and ₹1,50,000), the current PPF interest rate (7.1% as of 2026), and your investment period in years (minimum 15 years). Click <strong>Calculate PPF</strong> to instantly see your total maturity amount, total invested amount, total interest earned, and a complete year-by-year breakdown table.</p>
 
 <h2>PPF Interest Calculation Formula</h2>
-<p>
-PPF interest is calculated on the minimum balance between the 5th and the last day of each month and credited to the account at the end of the financial year. For our calculator, we use the standard annual compounding formula:
-</p>
+<p>PPF interest is calculated on the minimum balance between the 5th and the last day of each month and credited to the account at the end of the financial year. For our calculator, we use the standard annual compounding formula:</p>
 <p><strong>F = P × [((1 + i)^n − 1) / i] × (1 + i)</strong></p>
-<p>
-Where <strong>F</strong> = Maturity amount, <strong>P</strong> = Annual investment, <strong>i</strong> = Annual interest rate, and <strong>n</strong> = Number of years. Since PPF allows investing at the beginning of the year, each instalment earns interest for the full year.
-</p>
+<p>Where <strong>F</strong> = Maturity amount, <strong>P</strong> = Annual investment, <strong>i</strong> = Annual interest rate, and <strong>n</strong> = Number of years. Since PPF allows investing at the beginning of the year, each instalment earns interest for the full year.</p>
 
 <h2>Key Features of PPF</h2>
 
@@ -304,7 +279,6 @@ Where <strong>F</strong> = Maturity amount, <strong>P</strong> = Annual investme
 <li>Avoid taking loans against PPF unless absolutely necessary — it reduces your compounding benefit</li>
 </ul>
 
-<!-- ✅ Internal links -->
 <p><strong>Also try:</strong> Use our <a href="fd-calculator.html">FD Calculator</a> to compare PPF with Fixed Deposit returns, our <a href="sip-calculator.html">SIP Calculator</a> for mutual fund planning, or our <a href="index.html">EMI Calculator</a> for loan repayment planning.</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
@@ -394,14 +368,28 @@ function drawChart(invested, interest) {
     },
     options: {
       responsive: true,
-      plugins: {
-        legend: { position: 'bottom' }
-      }
+      plugins: { legend: { position: 'bottom' } }
     }
   });
 }
 
 window.onload = function () { calculatePPF(); };
+</script>
+
+<!-- ✅ HAMBURGER MENU SCRIPT -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  });
+});
 </script>
 
 </body>
