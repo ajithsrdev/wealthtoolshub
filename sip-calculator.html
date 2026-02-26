@@ -20,7 +20,7 @@
 <!-- ✅ UNCHANGED: Canonical -->
 <link rel="canonical" href="https://www.wealthtoolshub.com/sip-calculator">
 
-<!-- ✅ ADDED: Open Graph Tags (WhatsApp / Facebook / LinkedIn preview) -->
+<!-- ✅ ADDED: Open Graph Tags -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WealthToolsHub">
 <meta property="og:title" content="SIP Calculator – Calculate Mutual Fund SIP Returns | WealthToolsHub">
@@ -32,7 +32,7 @@
 <meta name="twitter:title" content="SIP Calculator – Calculate Mutual Fund SIP Returns | WealthToolsHub">
 <meta name="twitter:description" content="Free SIP Calculator India – Estimate your mutual fund corpus instantly. Plan your financial goals with WealthToolsHub.">
 
-<!-- ✅ ADDED: JSON-LD Schema Markup (WebApplication + FAQPage + BreadcrumbList) -->
+<!-- ✅ ADDED: JSON-LD Schema Markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,28 +129,39 @@
 }
 </script>
 
-<!-- ✅ UNCHANGED: Your existing CSS and Chart.js -->
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
+<!-- ✅ UPDATED NAVBAR WITH HAMBURGER -->
 <header class="navbar">
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
     <nav>
-  <a href="index.html">EMI Calculator</a>
-  <a href="sip-calculator.html" class="active">SIP Calculator</a>
-  <a href="fd-calculator.html">FD Calculator</a>
-  <a href="ppf-calculator.html">PPF Calculator</a>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html" class="active">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html">PPF Calculator</a>
     </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <div class="hamburger-lines">
+        <span></span><span></span><span></span>
+      </div>
+      Menu
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">EMI Calculator</a>
+    <a href="sip-calculator.html" class="active">SIP Calculator</a>
+    <a href="fd-calculator.html">FD Calculator</a>
+    <a href="ppf-calculator.html">PPF Calculator</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <!-- ✅ CHANGED: H1 improved with keyword -->
     <h1>SIP Calculator – Estimate Your Mutual Fund Returns Instantly</h1>
     <p>Plan your mutual fund investment smartly.</p>
   </div>
@@ -189,18 +200,12 @@
 <section class="container seo-content">
 
 <h2>What is a SIP (Systematic Investment Plan)?</h2>
-<p>
-A Systematic Investment Plan (SIP) is a structured way of investing a fixed amount in mutual funds at regular intervals, usually monthly. Instead of investing a large lump sum amount at once, SIP allows investors to contribute smaller amounts consistently. This approach promotes disciplined investing and reduces the stress of market timing.
-</p>
+<p>A Systematic Investment Plan (SIP) is a structured way of investing a fixed amount in mutual funds at regular intervals, usually monthly. Instead of investing a large lump sum amount at once, SIP allows investors to contribute smaller amounts consistently. This approach promotes disciplined investing and reduces the stress of market timing.</p>
 
-<p>
-In India, SIP has become one of the most preferred investment methods among salaried professionals, young investors, and long-term wealth builders. Whether your goal is retirement, children's education, buying a home, or financial independence, SIP can help create wealth steadily over time.
-</p>
+<p>In India, SIP has become one of the most preferred investment methods among salaried professionals, young investors, and long-term wealth builders. Whether your goal is retirement, children's education, buying a home, or financial independence, SIP can help create wealth steadily over time.</p>
 
 <h2>How This SIP Calculator Works</h2>
-<p>
-Our SIP Calculator helps you estimate the future value of your monthly investments based on three inputs:
-</p>
+<p>Our SIP Calculator helps you estimate the future value of your monthly investments based on three inputs:</p>
 
 <ul>
 <li>Monthly investment amount</li>
@@ -208,54 +213,34 @@ Our SIP Calculator helps you estimate the future value of your monthly investmen
 <li>Investment duration (in years)</li>
 </ul>
 
-<p>
-Using the power of compounding, the calculator projects how your wealth may grow over time. While actual returns depend on market performance, this tool gives you a realistic estimate to plan your financial goals more confidently.
-</p>
+<p>Using the power of compounding, the calculator projects how your wealth may grow over time. While actual returns depend on market performance, this tool gives you a realistic estimate to plan your financial goals more confidently.</p>
 
 <h2>The Power of Compounding in SIP Investments</h2>
-<p>
-Compounding is the most powerful force behind long-term wealth creation. When you invest through SIP, not only does your principal earn returns, but those returns also start earning returns over time.
-</p>
+<p>Compounding is the most powerful force behind long-term wealth creation. When you invest through SIP, not only does your principal earn returns, but those returns also start earning returns over time.</p>
 
-<p>
-For example, investing ₹5,000 per month for 20 years at an average return of 12% can potentially create a corpus much larger than your total invested amount. The earlier you start, the greater the compounding advantage.
-</p>
+<p>For example, investing ₹5,000 per month for 20 years at an average return of 12% can potentially create a corpus much larger than your total invested amount. The earlier you start, the greater the compounding advantage.</p>
 
 <h2>Benefits of Investing Through SIP</h2>
 
 <h3>1. Financial Discipline</h3>
-<p>
-SIP encourages consistent investing. Since money is automatically invested every month, it builds a habit of saving before spending.
-</p>
+<p>SIP encourages consistent investing. Since money is automatically invested every month, it builds a habit of saving before spending.</p>
 
 <h3>2. Rupee Cost Averaging</h3>
-<p>
-Markets fluctuate daily. SIP helps reduce risk by purchasing more units when markets are low and fewer units when markets are high, balancing your overall investment cost.
-</p>
+<p>Markets fluctuate daily. SIP helps reduce risk by purchasing more units when markets are low and fewer units when markets are high, balancing your overall investment cost.</p>
 
 <h3>3. Affordable Entry</h3>
-<p>
-You can start investing with as little as ₹500 per month in many mutual funds in India. This makes SIP accessible to almost everyone.
-</p>
+<p>You can start investing with as little as ₹500 per month in many mutual funds in India. This makes SIP accessible to almost everyone.</p>
 
 <h3>4. Flexibility</h3>
-<p>
-Most SIPs allow you to increase, decrease, pause, or stop your investment anytime. You remain in control of your money.
-</p>
+<p>Most SIPs allow you to increase, decrease, pause, or stop your investment anytime. You remain in control of your money.</p>
 
 <h3>5. Long-Term Wealth Creation</h3>
-<p>
-SIP is ideal for long-term goals like retirement planning and wealth accumulation. Staying invested for 10–20 years significantly improves the potential outcome.
-</p>
+<p>SIP is ideal for long-term goals like retirement planning and wealth accumulation. Staying invested for 10–20 years significantly improves the potential outcome.</p>
 
 <h2>How SIP Returns Are Calculated</h2>
-<p>
-The future value of SIP investments is calculated using the compound interest formula:
-</p>
+<p>The future value of SIP investments is calculated using the compound interest formula:</p>
 
-<p>
-<strong>FV = P × [((1 + r)^n − 1) / r] × (1 + r)</strong>
-</p>
+<p><strong>FV = P × [((1 + r)^n − 1) / r] × (1 + r)</strong></p>
 
 <ul>
 <li>P = Monthly investment amount</li>
@@ -263,27 +248,17 @@ The future value of SIP investments is calculated using the compound interest fo
 <li>n = Total number of months</li>
 </ul>
 
-<p>
-This formula considers that each monthly investment grows for a different period, making SIP calculation slightly more complex than simple interest.
-</p>
+<p>This formula considers that each monthly investment grows for a different period, making SIP calculation slightly more complex than simple interest.</p>
 
 <h2>SIP vs Lump Sum Investment</h2>
-<p>
-In lump sum investing, you invest a large amount at once. This approach may benefit when markets are undervalued. However, predicting market movements consistently is difficult.
-</p>
+<p>In lump sum investing, you invest a large amount at once. This approach may benefit when markets are undervalued. However, predicting market movements consistently is difficult.</p>
 
-<p>
-SIP reduces market timing risk by spreading investments across different market cycles. For most retail investors in India, SIP offers a safer and more practical approach compared to lump sum investing.
-</p>
+<p>SIP reduces market timing risk by spreading investments across different market cycles. For most retail investors in India, SIP offers a safer and more practical approach compared to lump sum investing.</p>
 
 <h2>Is SIP Better Than Fixed Deposit?</h2>
-<p>
-Fixed Deposits (FDs) provide guaranteed returns with lower risk. However, returns are generally lower and may struggle to beat inflation over long periods.
-</p>
+<p>Fixed Deposits (FDs) provide guaranteed returns with lower risk. However, returns are generally lower and may struggle to beat inflation over long periods.</p>
 
-<p>
-SIP investments are market-linked and can potentially generate higher returns over the long term. While they carry market risk, disciplined long-term investing can help manage volatility.
-</p>
+<p>SIP investments are market-linked and can potentially generate higher returns over the long term. While they carry market risk, disciplined long-term investing can help manage volatility.</p>
 
 <h2>Who Should Consider Starting a SIP?</h2>
 <ul>
@@ -303,45 +278,47 @@ SIP investments are market-linked and can potentially generate higher returns ov
 <li>Avoid stopping SIP during short-term market corrections</li>
 </ul>
 
-<!-- ✅ ADDED: Internal link to EMI Calculator -->
 <p><strong>Also try:</strong> Use our <a href="index.html">EMI Calculator</a> to calculate your monthly loan repayment alongside your SIP investments.</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
 
 <h3>1. What is the minimum SIP amount in India?</h3>
-<p>
-Most mutual funds allow SIP investments starting from ₹500 per month.
-</p>
+<p>Most mutual funds allow SIP investments starting from ₹500 per month.</p>
 
 <h3>2. Are SIP returns guaranteed?</h3>
-<p>
-No, SIP returns depend on market performance. Mutual fund investments are subject to market risks.
-</p>
+<p>No, SIP returns depend on market performance. Mutual fund investments are subject to market risks.</p>
 
 <h3>3. Can I increase my SIP amount later?</h3>
-<p>
-Yes. Many mutual funds offer step-up SIP options that allow you to increase your investment annually.
-</p>
+<p>Yes. Many mutual funds offer step-up SIP options that allow you to increase your investment annually.</p>
 
 <h3>4. How long should I continue a SIP?</h3>
-<p>
-For meaningful wealth creation, it is recommended to stay invested for at least 5–10 years or longer.
-</p>
+<p>For meaningful wealth creation, it is recommended to stay invested for at least 5–10 years or longer.</p>
 
 <h3>5. Is SIP suitable for beginners?</h3>
-<p>
-Yes. SIP is considered one of the simplest and most beginner-friendly ways to start investing in mutual funds.
-</p>
+<p>Yes. SIP is considered one of the simplest and most beginner-friendly ways to start investing in mutual funds.</p>
 
-<!-- ✅ ADDED: 6th FAQ for SIP formula keyword -->
 <h3>6. What is the SIP formula used in this calculator?</h3>
-<p>
-The SIP return formula is: FV = P × [((1 + r)^n − 1) / r] × (1 + r), where P is the monthly investment amount, r is the monthly rate of return, and n is the total number of months invested.
-</p>
+<p>The SIP return formula is: FV = P × [((1 + r)^n − 1) / r] × (1 + r), where P is the monthly investment amount, r is the monthly rate of return, and n is the total number of months invested.</p>
 
 </section>
 
-<!-- ✅ UNCHANGED: Your existing JS -->
 <script src="js/sip.js"></script>
+
+<!-- ✅ HAMBURGER MENU SCRIPT -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  });
+});
+</script>
+
 </body>
 </html>
