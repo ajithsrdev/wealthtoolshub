@@ -61,4 +61,3 @@ function calculateSIP() {
 
 // ✅ Auto-calculate with default values on page load
 document.addEventListener("DOMContentLoaded", calculateSIP);
-
