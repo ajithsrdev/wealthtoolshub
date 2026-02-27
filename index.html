@@ -3,36 +3,25 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- ✅ SEO: Meta Title -->
 <title>EMI Calculator – Calculate Loan EMI Instantly Online | WealthToolsHub</title>
 
-<!-- ✅ SEO: Meta Description -->
 <meta name="description" content="Use our free EMI Calculator to instantly calculate your home loan, car loan or personal loan EMI. Get monthly EMI, total interest & payment breakdown. 100% free & accurate.">
-
-<!-- ✅ SEO: Keywords -->
 <meta name="keywords" content="EMI calculator, EMI calculator India, loan EMI calculator, home loan EMI calculator, car loan EMI calculator, personal loan EMI calculator, monthly EMI calculator 2026">
-
-<!-- ✅ SEO: Robots -->
 <meta name="robots" content="index, follow">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ Canonical -->
 <link rel="canonical" href="https://www.wealthtoolshub.com/">
 
-<!-- ✅ Open Graph Tags -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WealthToolsHub">
 <meta property="og:title" content="EMI Calculator – Calculate Loan EMI Instantly | WealthToolsHub">
 <meta property="og:description" content="Free EMI Calculator India – Calculate your home loan, car loan or personal loan EMI instantly. Plan your finances with WealthToolsHub.">
 <meta property="og:url" content="https://www.wealthtoolshub.com/">
 
-<!-- ✅ Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EMI Calculator – Calculate Loan EMI Instantly | WealthToolsHub">
 <meta name="twitter:description" content="Free EMI Calculator India – Calculate your home, car or personal loan EMI instantly with WealthToolsHub.">
 
-<!-- ✅ JSON-LD Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,7 +121,6 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- ✅ Mobile UI Fix -->
 <style>
 * { box-sizing: border-box; }
 .calculator-card { display: flex; flex-wrap: wrap; gap: 24px; }
@@ -152,9 +140,9 @@ input[type=number] { -moz-appearance: textfield; }
 </style>
 </head>
 
-<body>
+<body style="overflow-x:hidden;">
 
-<!-- ✅ UPDATED NAVBAR WITH HAMBURGER -->
+<!-- ✅ NAVBAR — Fixed: Added Tax Calculator link -->
 <header class="navbar">
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
@@ -163,6 +151,7 @@ input[type=number] { -moz-appearance: textfield; }
       <a href="sip-calculator.html">SIP Calculator</a>
       <a href="fd-calculator.html">FD Calculator</a>
       <a href="ppf-calculator.html">PPF Calculator</a>
+      <a href="income-tax-calculator.html">Tax Calculator</a>
     </nav>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <div class="hamburger-lines">
@@ -176,6 +165,7 @@ input[type=number] { -moz-appearance: textfield; }
     <a href="sip-calculator.html">SIP Calculator</a>
     <a href="fd-calculator.html">FD Calculator</a>
     <a href="ppf-calculator.html">PPF Calculator</a>
+    <a href="income-tax-calculator.html">Tax Calculator</a>
   </div>
 </header>
 
@@ -208,12 +198,14 @@ input[type=number] { -moz-appearance: textfield; }
   </div>
   <p>Total Interest: ₹ <span id="totalInterest">0</span></p>
   <p>Total Payment: ₹ <span id="totalPayment">0</span></p>
-  <canvas id="emiChart"></canvas>
+  <div style="position:relative;width:100%;max-width:100%;overflow:hidden;">
+    <canvas id="emiChart"></canvas>
+  </div>
 </div>
 
 </section>
 
-<!-- ✅ SEO CONTENT SECTION -->
+<!-- SEO CONTENT SECTION -->
 <section class="container seo-content">
 
 <h2>What is an EMI?</h2>
@@ -262,7 +254,8 @@ input[type=number] { -moz-appearance: textfield; }
 <li>Maintain a good credit score (750+) to qualify for lower rates</li>
 </ul>
 
-<p><strong>Also try:</strong> Use our <a href="sip-calculator.html">SIP Calculator</a> to plan your mutual fund investments alongside your loan repayments.</p>
+<!-- ✅ Fixed: Expanded cross-links for better internal SEO -->
+<p><strong>Also try:</strong> Use our <a href="sip-calculator.html">SIP Calculator</a> to grow wealth alongside your loan, our <a href="fd-calculator.html">FD Calculator</a> to plan fixed deposits, our <a href="ppf-calculator.html">PPF Calculator</a> for tax-free savings, or our <a href="income-tax-calculator.html">Income Tax Calculator</a> to claim home loan interest deduction under Section 24(b).</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
 
@@ -288,7 +281,7 @@ input[type=number] { -moz-appearance: textfield; }
 
 <script src="js/emi.js"></script>
 
-<!-- ✅ HAMBURGER MENU SCRIPT -->
+<!-- HAMBURGER MENU SCRIPT -->
 <script>
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
