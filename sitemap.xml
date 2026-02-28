@@ -4,7 +4,15 @@
   <!-- Homepage / EMI Calculator -->
   <url>
     <loc>https://www.wealthtoolshub.com/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.wealthtoolshub.com/home</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,4 +74,3 @@
   </url>
 
 </urlset>
-
