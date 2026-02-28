@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Contact Us – WealthToolsHub | Free Financial Calculators India</title>
+
+<meta name="description" content="Contact WealthToolsHub for feedback, suggestions or queries about our free financial calculators. We'd love to hear from you.">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://www.wealthtoolshub.com/contact">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WealthToolsHub">
+<meta property="og:title" content="Contact Us – WealthToolsHub">
+<meta property="og:url" content="https://www.wealthtoolshub.com/contact">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact WealthToolsHub",
+  "url": "https://www.wealthtoolshub.com/contact",
+  "publisher": {
+    "@type": "Organization",
+    "name": "WealthToolsHub",
+    "url": "https://www.wealthtoolshub.com"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.contact-hero {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.contact-hero h1 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.contact-hero p {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-wrapper {
+  max-width: 860px;
+  margin: 60px auto;
+  padding: 0 20px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left — Info */
+.contact-info h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+.contact-info p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.contact-item-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.contact-item h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+.contact-item p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Right — Form */
+.contact-form-box {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border: 1px solid #f1f5f9;
+}
+.contact-form-box h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  font-size: 15px;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1e3a8a;
+  background: white;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.submit-btn:hover { background: #0f172a; }
+
+.success-msg {
+  display: none;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  color: #166534;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 16px;
+}
+
+/* FAQ section */
+.contact-faq {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+.contact-faq h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+.faq-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  border: 1px solid #e2e8f0;
+}
+.faq-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+.faq-item p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: white; }
+.footer p { font-size: 13px; margin-bottom: 4px; }
+
+@media (max-width: 768px) {
+  .contact-hero h1 { font-size: 26px; }
+  .contact-wrapper { grid-template-columns: 1fr; gap: 24px; }
+  .contact-form-box { padding: 24px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">WealthToolsHub</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html">PPF Calculator</a>
+      <a href="income-tax-calculator.html">Tax Calculator</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <div class="hamburger-lines">
+        <span></span><span></span><span></span>
+      </div>
+      Menu
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">Home</a>
+    <a href="index.html">EMI Calculator</a>
+    <a href="sip-calculator.html">SIP Calculator</a>
+    <a href="fd-calculator.html">FD Calculator</a>
+    <a href="ppf-calculator.html">PPF Calculator</a>
+    <a href="income-tax-calculator.html">Tax Calculator</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Have feedback, found a bug, or want to suggest a new calculator? We'd love to hear from you!</p>
+  </div>
+</section>
+
+<!-- CONTACT WRAPPER -->
+<div class="contact-wrapper container">
+
+  <!-- LEFT — INFO -->
+  <div class="contact-info">
+    <h2>Get In Touch</h2>
+    <p>We're a small team passionate about making financial planning simple and free for every Indian. Your feedback helps us build better tools.</p>
+
+    <div class="contact-item">
+      <span class="contact-item-icon">💬</span>
+      <div>
+        <h3>General Feedback</h3>
+        <p>Share your thoughts, suggestions or ideas to help us improve WealthToolsHub.</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-icon">🐛</span>
+      <div>
+        <h3>Report a Bug</h3>
+        <p>Found an error in any calculator? Let us know and we'll fix it immediately.</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-icon">💡</span>
+      <div>
+        <h3>Suggest a Calculator</h3>
+        <p>Need a calculator we don't have yet? Tell us and we'll consider building it.</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-icon">🤝</span>
+      <div>
+        <h3>Business Enquiry</h3>
+        <p>For partnerships, collaborations or any business-related queries.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT — FORM -->
+  <div class="contact-form-box">
+    <h2>Send Us a Message</h2>
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="contactName" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="contactEmail" placeholder="Enter your email">
+    </div>
+
+    <div class="form-group">
+      <label>Subject</label>
+      <select id="contactSubject">
+        <option value="">Select a subject</option>
+        <option value="feedback">General Feedback</option>
+        <option value="bug">Report a Bug</option>
+        <option value="suggestion">Suggest a Calculator</option>
+        <option value="business">Business Enquiry</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="contactMessage" placeholder="Write your message here..."></textarea>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">Send Message</button>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Thank you! Your message has been sent. We'll get back to you soon.
+    </div>
+  </div>
+
+</div>
+
+<!-- FAQ SECTION -->
+<div class="contact-faq container">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h3>How quickly do you respond to messages?</h3>
+    <p>We typically respond to all messages within 1–3 business days. For urgent bug reports, we try to respond within 24 hours.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Are all calculators on WealthToolsHub free?</h3>
+    <p>Yes! All calculators are 100% free with no sign-up, subscription, or payment required — ever.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I suggest a new calculator?</h3>
+    <p>Absolutely! We love suggestions from our users. Use the contact form above and select "Suggest a Calculator" as the subject.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is my data safe when I use your calculators?</h3>
+    <p>Yes. All your calculator inputs are processed entirely in your browser. We never store or transmit your financial data to our servers. Read our <a href="privacy-policy.html">Privacy Policy</a> for more details.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="home.html">Home</a>
+      <a href="index.html">EMI Calculator</a>
+      <a href="sip-calculator.html">SIP Calculator</a>
+      <a href="fd-calculator.html">FD Calculator</a>
+      <a href="ppf-calculator.html">PPF Calculator</a>
+      <a href="income-tax-calculator.html">Tax Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p>© 2026 WealthToolsHub. All rights reserved.</p>
+    <p style="margin-top:6px;font-size:12px;">Free financial calculators for Indians. Results are for planning purposes only and do not constitute financial advice.</p>
+  </div>
+</footer>
+
+<script>
+async function submitForm() {
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const subject = document.getElementById('contactSubject').value;
+  const message = document.getElementById('contactMessage').value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert('Please fill in all fields before submitting.');
+    return;
+  }
+
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const formData = {
+    access_key: 'a5e47805-9e07-4002-9c82-d9915a1827a7',
+    name: name,
+    email: email,
+    subject: 'WealthToolsHub Contact: ' + subject,
+    message: message
+  };
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('contactName').value = '';
+      document.getElementById('contactEmail').value = '';
+      document.getElementById('contactSubject').value = '';
+      document.getElementById('contactMessage').value = '';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (error) {
+    alert('Failed to send message. Please try again.');
+  }
+
+  btn.textContent = 'Send Message';
+  btn.disabled = false;
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
 
