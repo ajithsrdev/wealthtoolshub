@@ -129,8 +129,8 @@
   <div class="container nav-flex">
     <div class="logo">WealthToolsHub</div>
     <nav>
-      <a href="home.html">Home</a>
-      <a href="index.html">EMI Calculator</a>
+      <a href="index.html">Home</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
       <a href="sip-calculator.html" class="active">SIP Calculator</a>
       <a href="fd-calculator.html">FD Calculator</a>
       <a href="ppf-calculator.html">PPF Calculator</a>
@@ -144,8 +144,8 @@
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="home.html">Home</a>
-    <a href="index.html">EMI Calculator</a>
+    <a href="index.html">Home</a>
+    <a href="emi-calculator.html">EMI Calculator</a>
     <a href="sip-calculator.html" class="active">SIP Calculator</a>
     <a href="fd-calculator.html">FD Calculator</a>
     <a href="ppf-calculator.html">PPF Calculator</a>
@@ -273,8 +273,7 @@
 <li>Avoid stopping SIP during short-term market corrections</li>
 </ul>
 
-<!-- ✅ FIX: Expanded cross-links for better internal SEO -->
-<p><strong>Also try:</strong> Use our <a href="index.html">EMI Calculator</a> to plan your loan repayments, our <a href="fd-calculator.html">FD Calculator</a> to compare SIP vs Fixed Deposit returns, our <a href="ppf-calculator.html">PPF Calculator</a> for tax-free long-term savings, or our <a href="income-tax-calculator.html">Income Tax Calculator</a> to see how ELSS SIP saves you tax under Section 80C.</p>
+<p><strong>Also try:</strong> Use our <a href="emi-calculator.html">EMI Calculator</a> to plan your loan repayments, our <a href="fd-calculator.html">FD Calculator</a> to compare SIP vs Fixed Deposit returns, our <a href="ppf-calculator.html">PPF Calculator</a> for tax-free long-term savings, or our <a href="income-tax-calculator.html">Income Tax Calculator</a> to see how ELSS SIP saves you tax under Section 80C.</p>
 
 <h2>Frequently Asked Questions (FAQs)</h2>
 
@@ -298,7 +297,6 @@
 
 </section>
 
-<!-- ✅ FIX: Inline JS instead of external sip.js dependency + auto-calculate on load -->
 <script>
 let sipChartInstance = null;
 
@@ -364,7 +362,6 @@ function drawChart(invested, returns) {
   });
 }
 
-// ✅ FIX: Auto-calculate with default values on page load
 document.addEventListener('DOMContentLoaded', function () {
   calculateSIP();
 });
