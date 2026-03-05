@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Icon background circle -->
+  <circle cx="40" cy="40" r="34" fill="url(#bgGrad)" />
+
+  <!-- Chart bars inside circle -->
+  <rect x="22" y="46" width="7" height="12" rx="1.5" fill="white" opacity="0.6"/>
+  <rect x="33" y="36" width="7" height="22" rx="1.5" fill="white" opacity="0.8"/>
+  <rect x="44" y="28" width="7" height="30" rx="1.5" fill="white"/>
+
+  <!-- Trend line over bars -->
+  <polyline points="25,44 36,34 47,26 57,20" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trend line dot -->
+  <circle cx="57" cy="20" r="3" fill="#60a5fa"/>
+
+  <!-- Text: WealthTools -->
+  <text x="86" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#0f172a" letter-spacing="-0.5">Wealth<tspan fill="url(#iconGrad)">Tools</tspan></text>
+
+  <!-- Text: Hub -->
+  <text x="86" y="57" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#0f172a" letter-spacing="-0.5">Hub</text>
+
+  <!-- Tagline -->
+  <text x="87" y="70" font-family="Arial, sans-serif" font-size="9.5" fill="#64748b" letter-spacing="1.5" font-weight="400">FREE FINANCIAL CALCULATORS</text>
+
+  <!-- Vertical divider between Hub and tagline area -->
+  <line x1="83" y1="22" x2="83" y2="72" stroke="#e2e8f0" stroke-width="1"/>
+</svg>
