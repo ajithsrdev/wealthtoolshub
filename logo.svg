@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50" width="300" height="50">
+  <defs>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#93c5fd"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bar chart icon -->
+  <rect x="2"  y="32" width="7" height="12" rx="1.5" fill="url(#barGrad)" opacity="0.6"/>
+  <rect x="12" y="23" width="7" height="21" rx="1.5" fill="url(#barGrad)" opacity="0.8"/>
+  <rect x="22" y="14" width="7" height="30" rx="1.5" fill="url(#barGrad)"/>
+
+  <!-- Trend line -->
+  <polyline points="5,30 15,21 25,12 36,5" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="5" r="2.5" fill="#60a5fa"/>
+
+  <!-- Brand name: white + blue on dark navbar -->
+  <text x="48" y="30" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="-0.3">
+    <tspan fill="#ffffff">Wealth</tspan><tspan fill="#60a5fa">Tools</tspan><tspan fill="#ffffff">Hub</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="49" y="43" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8" letter-spacing="1.8">FREE FINANCIAL CALCULATORS</text>
+</svg>
