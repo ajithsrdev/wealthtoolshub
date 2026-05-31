@@ -5,206 +5,116 @@
 <title>FD Calculator – Calculate Fixed Deposit Maturity Amount Online | WealthToolsHub</title>
 <meta name="description" content="Use our free FD Calculator to calculate Fixed Deposit maturity amount and interest earned instantly. Enter principal, interest rate & tenure to plan your FD investment.">
 <meta name="keywords" content="FD calculator, fixed deposit calculator, FD calculator India, FD maturity calculator, fixed deposit interest calculator, FD return calculator 2026">
-<meta name="robots" content="index, follow">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://www.wealthtoolshub.com/fd-calculator">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="WealthToolsHub">
+<meta property="og:type" content="website"><meta property="og:site_name" content="WealthToolsHub">
 <meta property="og:title" content="FD Calculator – Calculate Fixed Deposit Maturity Amount | WealthToolsHub">
-<meta property="og:description" content="Free FD Calculator India – Calculate your Fixed Deposit maturity amount and interest earned instantly. Plan smarter with WealthToolsHub.">
+<meta property="og:description" content="Free FD Calculator India – Calculate your Fixed Deposit maturity amount and interest earned instantly.">
 <meta property="og:url" content="https://www.wealthtoolshub.com/fd-calculator">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FD Calculator – Calculate Fixed Deposit Maturity Amount | WealthToolsHub">
-<meta name="twitter:description" content="Free FD Calculator India – Calculate your Fixed Deposit maturity amount instantly with WealthToolsHub.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebApplication",
-      "name": "FD Calculator",
-      "url": "https://www.wealthtoolshub.com/fd-calculator",
-      "description": "Free online FD Calculator to calculate Fixed Deposit maturity amount and interest earned based on principal, interest rate, and tenure.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "provider": { "@type": "Organization", "name": "WealthToolsHub", "url": "https://www.wealthtoolshub.com" }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What is a Fixed Deposit (FD)?", "acceptedAnswer": { "@type": "Answer", "text": "A Fixed Deposit (FD) is a financial instrument offered by banks and NBFCs where you deposit a lump sum amount for a fixed tenure at a predetermined interest rate." } },
-        { "@type": "Question", "name": "How is FD interest calculated?", "acceptedAnswer": { "@type": "Answer", "text": "FD interest is calculated using: A = P × (1 + r/n)^(n×t), where P is the principal, r is the annual interest rate, n is the compounding frequency per year, and t is the tenure in years." } },
-        { "@type": "Question", "name": "Is FD interest taxable in India?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, FD interest is fully taxable in India as per your income tax slab. Banks deduct TDS at 10% if interest exceeds ₹40,000 per year (₹50,000 for senior citizens)." } }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.wealthtoolshub.com" },
-        { "@type": "ListItem", "position": 2, "name": "FD Calculator", "item": "https://www.wealthtoolshub.com/fd-calculator" }
-      ]
-    }
-  ]
-}
-</script>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+/* Cookie Consent Banner */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f172a;border-top:2px solid #1e3a8a;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,0.4);transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+#cookie-banner.visible{transform:translateY(0);}
+#cookie-banner .cookie-icon{font-size:22px;flex-shrink:0;}
+#cookie-banner .cookie-text{flex:1;min-width:220px;}
+#cookie-banner .cookie-text p{font-size:13.5px;color:#94a3b8;line-height:1.6;margin:0;}
+#cookie-banner .cookie-text p strong{color:#e2e8f0;}
+#cookie-banner .cookie-text a{color:#60a5fa;text-decoration:underline;font-size:13px;}
+#cookie-banner .cookie-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+#cookie-accept{background:#1e3a8a;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;}
+#cookie-accept:hover{background:#1d4ed8;}
+#cookie-decline{background:transparent;color:#64748b;border:1px solid #334155;padding:10px 18px;border-radius:6px;font-size:14px;cursor:pointer;white-space:nowrap;}
+#cookie-decline:hover{color:#94a3b8;border-color:#475569;}
+@media(max-width:600px){#cookie-banner{flex-direction:column;align-items:flex-start;padding:16px;}#cookie-banner .cookie-actions{width:100%;}#cookie-accept,#cookie-decline{flex:1;text-align:center;}}
+</style>
 </head>
 <body>
-
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <span class="cookie-icon">🍪</span>
+  <div class="cookie-text"><p><strong>We use cookies</strong> to analyse site traffic and serve personalised ads via <strong>Google AdSense</strong>. By clicking "Accept", you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>. Opt out at <a href="https://www.aboutads.info" target="_blank" rel="noopener">aboutads.info</a>.</p></div>
+  <div class="cookie-actions"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept All</button></div>
+</div>
 <header class="navbar">
   <div class="container nav-flex">
-    <div class="logo">
-  <img src="logo.svg" alt="WealthToolsHub" height="44" style="display:block;">
-</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="emi-calculator.html">EMI Calculator</a>
-      <a href="sip-calculator.html">SIP Calculator</a>
-      <a href="fd-calculator.html" class="active">FD Calculator</a>
-      <a href="ppf-calculator.html">PPF Calculator</a>
-      <a href="income-tax-calculator.html">Tax Calculator</a>
-    </nav>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <div class="hamburger-lines"><span></span><span></span><span></span></div>
-      Menu
-    </button>
+    <div class="logo"><img src="logo.svg" alt="WealthToolsHub" height="44" style="display:block;"></div>
+    <nav><a href="index.html">Home</a><a href="emi-calculator.html">EMI Calculator</a><a href="sip-calculator.html">SIP Calculator</a><a href="fd-calculator.html" class="active">FD Calculator</a><a href="ppf-calculator.html">PPF Calculator</a><a href="income-tax-calculator.html">Tax Calculator</a></nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><div class="hamburger-lines"><span></span><span></span><span></span></div>Menu</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="emi-calculator.html">EMI Calculator</a>
-    <a href="sip-calculator.html">SIP Calculator</a>
-    <a href="fd-calculator.html" class="active">FD Calculator</a>
-    <a href="ppf-calculator.html">PPF Calculator</a>
-    <a href="income-tax-calculator.html">Tax Calculator</a>
+    <a href="index.html">Home</a><a href="emi-calculator.html">EMI Calculator</a><a href="sip-calculator.html">SIP Calculator</a><a href="fd-calculator.html" class="active">FD Calculator</a><a href="ppf-calculator.html">PPF Calculator</a><a href="income-tax-calculator.html">Tax Calculator</a>
   </div>
 </header>
-
-<section class="hero">
-  <div class="container">
-    <h1>FD Calculator – Calculate Your Fixed Deposit Returns Instantly</h1>
-    <p>Find out your Fixed Deposit maturity amount and total interest earned in seconds.</p>
-  </div>
-</section>
-
+<section class="hero"><div class="container"><h1>FD Calculator – Calculate Your Fixed Deposit Returns Instantly</h1><p>Find out your Fixed Deposit maturity amount and total interest earned in seconds.</p></div></section>
 <section class="container calculator-card">
 <div class="input-side">
-  <label>Principal Amount (₹)</label>
-  <input type="number" id="principal" value="100000" placeholder="Enter deposit amount">
-  <label>Annual Interest Rate (%)</label>
-  <input type="number" id="interestRate" value="7" step="0.1" placeholder="Enter interest rate">
-  <label>Tenure (Years)</label>
-  <input type="number" id="tenure" value="3" placeholder="Enter tenure in years">
+  <label>Principal Amount (₹)</label><input type="number" id="principal" value="100000" placeholder="Enter deposit amount">
+  <label>Annual Interest Rate (%)</label><input type="number" id="interestRate" value="7" step="0.1" placeholder="Enter interest rate">
+  <label>Tenure (Years)</label><input type="number" id="tenure" value="3" placeholder="Enter tenure in years">
   <label>Compounding Frequency</label>
   <select id="compounding" style="width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid #d1d5db;background:#f9fafb;font-size:16px;color:#1e293b;outline:none;margin-top:4px;">
-    <option value="1">Annually</option>
-    <option value="2">Half Yearly</option>
-    <option value="4" selected>Quarterly</option>
-    <option value="12">Monthly</option>
+    <option value="1">Annually</option><option value="2">Half Yearly</option><option value="4" selected>Quarterly</option><option value="12">Monthly</option>
   </select>
   <button onclick="calculateFD()">Calculate FD</button>
 </div>
 <div class="result-side">
-  <div class="result-box">
-    <p>Maturity Amount</p>
-    <h2>₹ <span id="maturityAmount">0</span></h2>
-  </div>
+  <div class="result-box"><p>Maturity Amount</p><h2>₹ <span id="maturityAmount">0</span></h2></div>
   <p>Principal Amount: ₹ <span id="principalDisplay">0</span></p>
   <p>Total Interest Earned: ₹ <span id="totalInterest">0</span></p>
   <canvas id="fdChart"></canvas>
 </div>
 </section>
-
 <section class="container seo-content">
 <h2>What is a Fixed Deposit (FD)?</h2>
-<p>A Fixed Deposit (FD) is one of the safest and most popular investment options in India. Offered by banks, post offices, and NBFCs, an FD allows you to deposit a lump sum amount for a fixed period at a predetermined interest rate. Unlike a savings account, the interest rate on an FD is locked in for the entire tenure, giving you guaranteed returns regardless of market conditions.</p>
-<p>Fixed Deposits are ideal for conservative investors who want capital protection and steady returns. They are backed by deposit insurance of up to ₹5 lakh per depositor per bank under DICGC, making them one of the safest investment instruments available in India.</p>
-
-<h2>How to Use This FD Calculator</h2>
-<p>Using WealthToolsHub's FD Calculator is simple. Enter your principal deposit amount, the annual interest rate offered by your bank, the tenure in years, and the compounding frequency. Click <strong>Calculate FD</strong> to instantly see your maturity amount and total interest earned.</p>
-
+<p>A Fixed Deposit (FD) is one of the safest and most popular investment options in India. Offered by banks, post offices, and NBFCs, an FD allows you to deposit a lump sum amount for a fixed period at a predetermined interest rate.</p>
 <h2>FD Interest Calculation Formula</h2>
-<p>Fixed Deposit returns are calculated using the compound interest formula:</p>
 <p><strong>A = P × (1 + r/n)^(n×t)</strong></p>
-<p>Where <strong>A</strong> = Maturity amount, <strong>P</strong> = Principal amount, <strong>r</strong> = Annual interest rate (in decimal), <strong>n</strong> = Number of times interest is compounded per year, and <strong>t</strong> = Tenure in years.</p>
-
+<p>Where A = Maturity amount, P = Principal, r = Annual interest rate (decimal), n = Compounding frequency per year, t = Tenure in years.</p>
 <h2>Types of Fixed Deposits in India</h2>
-<h3>1. Cumulative FD</h3>
-<p>Interest is compounded and reinvested. You receive the principal along with all accumulated interest at maturity. Ideal for long-term goals.</p>
-<h3>2. Non-Cumulative FD</h3>
-<p>Interest is paid out at regular intervals — monthly, quarterly, half-yearly, or annually. Suitable for retirees or those needing regular income.</p>
-<h3>3. Tax-Saving FD</h3>
-<p>5-year lock-in period. Qualifies for deduction under Section 80C up to ₹1.5 lakh per year. However, interest earned is fully taxable.</p>
-<h3>4. Senior Citizen FD</h3>
-<p>Most banks offer an additional 0.25% to 0.50% interest rate to senior citizens (aged 60+). Higher TDS exemption threshold of ₹50,000 per year.</p>
-
+<h3>1. Cumulative FD</h3><p>Interest is compounded and reinvested. You receive the principal along with all accumulated interest at maturity.</p>
+<h3>2. Non-Cumulative FD</h3><p>Interest is paid out at regular intervals — monthly, quarterly, half-yearly, or annually.</p>
+<h3>3. Tax-Saving FD</h3><p>5-year lock-in period. Qualifies for deduction under Section 80C up to ₹1.5 lakh per year.</p>
+<h3>4. Senior Citizen FD</h3><p>Most banks offer an additional 0.25% to 0.50% interest rate to senior citizens (aged 60+).</p>
 <h2>Tips to Maximise Your FD Returns</h2>
 <ul>
 <li>Choose quarterly compounding over annual compounding for higher effective yield</li>
 <li>Ladder your FDs across different tenures to balance liquidity and returns</li>
 <li>Senior citizens should always book FDs under their name for the extra interest rate benefit</li>
-<li>Compare rates across banks and small finance banks before booking</li>
 <li>Submit Form 15G/15H to avoid TDS deduction if your income is below the taxable limit</li>
 </ul>
-
 <p><strong>Also try:</strong> Use our <a href="sip-calculator.html">SIP Calculator</a> to compare FD returns with mutual fund investments, or our <a href="emi-calculator.html">EMI Calculator</a> to plan your loan repayments.</p>
-
-<h2>Frequently Asked Questions (FAQs)</h2>
-<h3>1. What is a Fixed Deposit (FD)?</h3>
-<p>A Fixed Deposit is a financial instrument where you deposit a lump sum with a bank or NBFC for a fixed period at a predetermined interest rate, earning guaranteed returns.</p>
-<h3>2. How is FD interest calculated?</h3>
-<p>FD interest is calculated using compound interest formula: A = P × (1 + r/n)^(n×t).</p>
-<h3>3. Is FD interest taxable in India?</h3>
-<p>Yes. FD interest is fully taxable as per your income tax slab. Banks deduct TDS at 10% if annual interest exceeds ₹40,000 (₹50,000 for senior citizens).</p>
-<h3>4. Can I withdraw my FD before maturity?</h3>
-<p>Yes, most banks allow premature withdrawal with a small penalty — usually a 0.5% to 1% reduction in the applicable interest rate.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>1. What is a Fixed Deposit (FD)?</h3><p>A Fixed Deposit is a financial instrument where you deposit a lump sum with a bank or NBFC for a fixed period at a predetermined interest rate.</p>
+<h3>2. Is FD interest taxable in India?</h3><p>Yes. FD interest is fully taxable as per your income tax slab. Banks deduct TDS at 10% if annual interest exceeds ₹40,000 (₹50,000 for senior citizens).</p>
+<h3>3. Can I withdraw my FD before maturity?</h3><p>Yes, most banks allow premature withdrawal with a small penalty — usually a 0.5% to 1% reduction in the applicable interest rate.</p>
 </section>
-
 <script>
-let fdChartInstance = null;
-function calculateFD() {
-  const P = parseFloat(document.getElementById('principal').value);
-  const r = parseFloat(document.getElementById('interestRate').value) / 100;
-  const t = parseFloat(document.getElementById('tenure').value);
-  const n = parseInt(document.getElementById('compounding').value);
-  if (isNaN(P) || isNaN(r) || isNaN(t) || P <= 0 || r <= 0 || t <= 0) { alert('Please enter valid values.'); return; }
-  const A = P * Math.pow((1 + r / n), n * t);
-  const interest = A - P;
-  document.getElementById('maturityAmount').textContent = formatINR(Math.round(A));
-  document.getElementById('principalDisplay').textContent = formatINR(Math.round(P));
-  document.getElementById('totalInterest').textContent = formatINR(Math.round(interest));
-  drawChart(Math.round(P), Math.round(interest));
+let fdChartInstance=null;
+function calculateFD(){
+  const P=parseFloat(document.getElementById('principal').value);
+  const r=parseFloat(document.getElementById('interestRate').value)/100;
+  const t=parseFloat(document.getElementById('tenure').value);
+  const n=parseInt(document.getElementById('compounding').value);
+  if(isNaN(P)||isNaN(r)||isNaN(t)||P<=0||r<=0||t<=0){alert('Please enter valid values.');return;}
+  const A=P*Math.pow((1+r/n),n*t);const interest=A-P;
+  document.getElementById('maturityAmount').textContent=formatINR(Math.round(A));
+  document.getElementById('principalDisplay').textContent=formatINR(Math.round(P));
+  document.getElementById('totalInterest').textContent=formatINR(Math.round(interest));
+  drawChart(Math.round(P),Math.round(interest));
 }
-function formatINR(num) { return num.toLocaleString('en-IN'); }
-function drawChart(principal, interest) {
-  const ctx = document.getElementById('fdChart').getContext('2d');
-  if (fdChartInstance) fdChartInstance.destroy();
-  fdChartInstance = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Principal Amount', 'Interest Earned'],
-      datasets: [{ data: [principal, interest], backgroundColor: ['#1e3a8a', '#16a34a'], borderWidth: 0 }]
-    },
-    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-  });
+function formatINR(num){return num.toLocaleString('en-IN');}
+function drawChart(principal,interest){
+  const ctx=document.getElementById('fdChart').getContext('2d');
+  if(fdChartInstance)fdChartInstance.destroy();
+  fdChartInstance=new Chart(ctx,{type:'doughnut',data:{labels:['Principal Amount','Interest Earned'],datasets:[{data:[principal,interest],backgroundColor:['#1e3a8a','#16a34a'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}});
 }
-window.onload = function() { calculateFD(); };
-</script>
-
-<script>
-function toggleMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.querySelector('.hamburger');
-  menu.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-  });
-});
+window.onload=function(){calculateFD();};
+function toggleMenu(){const m=document.getElementById('mobileMenu');const b=document.querySelector('.hamburger');m.classList.toggle('open');b.classList.toggle('open');}
+document.querySelectorAll('.mobile-menu a').forEach(l=>{l.addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open');});});
+(function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('wth_cookie_consent')){setTimeout(function(){b.classList.add('visible');},600);}document.getElementById('cookie-accept').onclick=function(){localStorage.setItem('wth_cookie_consent','accepted');b.classList.remove('visible');};document.getElementById('cookie-decline').onclick=function(){localStorage.setItem('wth_cookie_consent','declined');b.classList.remove('visible');};})();
 </script>
 </body>
 </html>
