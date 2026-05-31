@@ -7,4 +7,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://www.wealthtoolshub.com/sitemap.xml
-
