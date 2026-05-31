@@ -102,9 +102,41 @@
   .policy-hero h1 { font-size: 24px; }
 }
 </style>
+<style>
+/* Cookie Consent Banner */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f172a;border-top:2px solid #1e3a8a;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,0.4);transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+#cookie-banner.visible{transform:translateY(0);}
+#cookie-banner .cookie-icon{font-size:22px;flex-shrink:0;}
+#cookie-banner .cookie-text{flex:1;min-width:220px;}
+#cookie-banner .cookie-text p{font-size:13.5px;color:#94a3b8;line-height:1.6;margin:0;}
+#cookie-banner .cookie-text p strong{color:#e2e8f0;}
+#cookie-banner .cookie-text a{color:#60a5fa;text-decoration:underline;font-size:13px;}
+#cookie-banner .cookie-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+#cookie-accept{background:#1e3a8a;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+#cookie-accept:hover{background:#1d4ed8;}
+#cookie-decline{background:transparent;color:#64748b;border:1px solid #334155;padding:10px 18px;border-radius:6px;font-size:14px;cursor:pointer;transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
+#cookie-decline:hover{color:#94a3b8;border-color:#475569;}
+@media(max-width:600px){#cookie-banner{flex-direction:column;align-items:flex-start;padding:16px;}#cookie-banner .cookie-actions{width:100%;}#cookie-accept,#cookie-decline{flex:1;text-align:center;}}
+</style>
 </head>
 
 <body>
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <span class="cookie-icon">🍪</span>
+  <div class="cookie-text">
+    <p>
+      <strong>We use cookies</strong> to analyse site traffic and serve personalised ads via
+      <strong>Google AdSense</strong>. By clicking “Accept”, you consent to our use of cookies
+      as described in our <a href="privacy-policy.html">Privacy Policy</a>.
+      You can opt out at <a href="https://www.aboutads.info" target="_blank" rel="noopener">aboutads.info</a>.
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button id="cookie-decline">Decline</button>
+    <button id="cookie-accept">Accept All</button>
+  </div>
+</div>
 
 <!-- NAVBAR -->
 <header class="navbar">
@@ -256,5 +288,21 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
 });
 </script>
 
+
+<script>
+(function(){
+  var banner=document.getElementById('cookie-banner');
+  var consent=localStorage.getItem('wth_cookie_consent');
+  if(!consent){setTimeout(function(){banner.classList.add('visible');},600);}
+  document.getElementById('cookie-accept').addEventListener('click',function(){
+    localStorage.setItem('wth_cookie_consent','accepted');
+    banner.classList.remove('visible');
+  });
+  document.getElementById('cookie-decline').addEventListener('click',function(){
+    localStorage.setItem('wth_cookie_consent','declined');
+    banner.classList.remove('visible');
+  });
+})();
+</script>
 </body>
 </html>
